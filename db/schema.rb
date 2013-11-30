@@ -11,6 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20131130022943) do
+
+  create_table "descriptions", force: true do |t|
+    t.string   "name"
+    t.string   "alignment"
+    t.string   "player"
+    t.string   "deity"
+    t.string   "homeland"
+    t.string   "gender"
+    t.string   "height"
+    t.string   "weight"
+    t.string   "eyes"
+    t.string   "hair"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

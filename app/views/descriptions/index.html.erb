@@ -1,0 +1,45 @@
+<h1>Listing descriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Alignment</th>
+      <th>Player</th>
+      <th>Deity</th>
+      <th>Homeland</th>
+      <th>Gender</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Eyes</th>
+      <th>Hair</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @descriptions.each do |description| %>
+      <tr>
+        <td><%= description.name %></td>
+        <td><%= description.alignment %></td>
+        <td><%= description.player %></td>
+        <td><%= description.deity %></td>
+        <td><%= description.homeland %></td>
+        <td><%= description.gender %></td>
+        <td><%= description.height %></td>
+        <td><%= description.weight %></td>
+        <td><%= description.eyes %></td>
+        <td><%= description.hair %></td>
+        <td><%= link_to 'Show', description %></td>
+        <td><%= link_to 'Edit', edit_description_path(description) %></td>
+        <td><%= link_to 'Destroy', description, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Description', new_description_path %>
