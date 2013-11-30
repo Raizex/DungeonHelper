@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
   	else
   		flash.now[:alert] = "Login failed"
   		render action: "new"
+  	end
   end
 
   def destroy
