@@ -1,0 +1,57 @@
+<%= form_for(@description) do |f| %>
+  <% if @description.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@description.errors.count, "error") %> prohibited this description from being saved:</h2>
+
+      <ul>
+      <% @description.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :alignment %><br>
+    <%= f.text_field :alignment %>
+  </div>
+  <div class="field">
+    <%= f.label :player %><br>
+    <%= f.text_field :player %>
+  </div>
+  <div class="field">
+    <%= f.label :deity %><br>
+    <%= f.text_field :deity %>
+  </div>
+  <div class="field">
+    <%= f.label :homeland %><br>
+    <%= f.text_field :homeland %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.number_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :eyes %><br>
+    <%= f.text_field :eyes %>
+  </div>
+  <div class="field">
+    <%= f.label :hair %><br>
+    <%= f.text_field :hair %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

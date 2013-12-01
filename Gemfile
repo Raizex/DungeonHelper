@@ -32,7 +32,12 @@ gem 'sorcery'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
-  gem 'rdoc', '~> 3.12.2'
+end
+
+group :test do
+	gem 'cucumber-rails', :require => false
+	gem 'database_cleaner'
+	gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password
