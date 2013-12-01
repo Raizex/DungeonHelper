@@ -2,7 +2,9 @@
 
 <p>
   <strong>Email:</strong>
-  <%= @user.email %>
+  <%= @user.email %><br>
+  <strong>Username:</strong>
+  <%= @user.user_name %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

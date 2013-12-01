@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20131126002741) do
 
   create_table "users", force: true do |t|
     t.string   "email",            null: false
+    t.string   "user_name"
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
