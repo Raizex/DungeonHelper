@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  race_name: MyString
+  race_description: MyString
+  size: MyString
+  attribute_modifiers: MyString
+  default_languages: MyString
+  available_languages: MyString
+
+two:
+  race_name: MyString
+  race_description: MyString
+  size: MyString
+  attribute_modifiers: MyString
+  default_languages: MyString
+  available_languages: MyString

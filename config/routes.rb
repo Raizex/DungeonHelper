@@ -1,5 +1,7 @@
 DungeonHelper::Application.routes.draw do
   
+  resources :races
+
   resources :characters
 
   get "user_sessions/new"

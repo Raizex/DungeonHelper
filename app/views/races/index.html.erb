@@ -1,0 +1,37 @@
+<h1>Listing races</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Race name</th>
+      <th>Race description</th>
+      <th>Size</th>
+      <th>Attribute modifiers</th>
+      <th>Default languages</th>
+      <th>Available languages</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @races.each do |race| %>
+      <tr>
+        <td><%= race.race_name %></td>
+        <td><%= race.race_description %></td>
+        <td><%= race.size %></td>
+        <td><%= race.attribute_modifiers %></td>
+        <td><%= race.default_languages %></td>
+        <td><%= race.available_languages %></td>
+        <td><%= link_to 'Show', race %></td>
+        <td><%= link_to 'Edit', edit_race_path(race) %></td>
+        <td><%= link_to 'Destroy', race, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Race', new_race_path %>
