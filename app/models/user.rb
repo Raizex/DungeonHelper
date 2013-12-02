@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 	validates :password_confirmation, presence: true
 
 	validates :email, uniqueness: true
+	validates :email, presence: true
+	validates :user_name, uniqueness: true
+	validates :user_name, presence: true
 
 	has_many :characters, dependent: :destroy
 
