@@ -1,0 +1,31 @@
+<h1>Listing ability_scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Race modifier</th>
+      <th>Temp modifier</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ability_scores.each do |ability_score| %>
+      <tr>
+        <td><%= ability_score.name %></td>
+        <td><%= ability_score.race_modifier %></td>
+        <td><%= ability_score.temp_modifier %></td>
+        <td><%= link_to 'Show', ability_score %></td>
+        <td><%= link_to 'Edit', edit_ability_score_path(ability_score) %></td>
+        <td><%= link_to 'Destroy', ability_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ability score', new_ability_score_path %>
