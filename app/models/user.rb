@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
 
 	validates :email, uniqueness: true
 
+	has_many :characters, dependent: :destroy
+
 end
