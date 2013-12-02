@@ -7,11 +7,12 @@ Feature: potential users should be able to create accounts and existing users ca
 
 Background:
 	Given I added a user
-
-Scenario: create a user
-	And I am on the users page
-	Then I should see that user
+	And I login with my account
 
 Scenario: login as a user
-	When I login with my account
 	Then I should see my user page
+
+Scenario: view characters of user
+	When I add a character to my account
+	And I am on my user page
+	Then I should see that character
