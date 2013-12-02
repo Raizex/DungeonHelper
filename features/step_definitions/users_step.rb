@@ -34,3 +34,20 @@ Then(/^I should see that character$/) do
   assert(page.has_content?(@character.summary), "Did not have character summery.")
   assert(page.has_content?(@character.campaign), "Did not have character campaign.")
 end
+
+Given(/^I log out$/) do
+  click_on 'Logout'
+end
+
+
+And(/^log in with the wrong information$/) do
+  visit '/login'
+  fill_in 'Email', with: @user.email
+  fill_in 'Password', with: @password + "t"
+  click_button 'Login'
+end
+
+Then(/^I should not see my user page$/) do
+  assert(not(page.has_content?("#{@user.user_name}")), "Did have user name.")
+  assert(not(page.has_content?('Login successful')), "Did login successfully.")
+end

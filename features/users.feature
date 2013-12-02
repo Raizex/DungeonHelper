@@ -12,7 +12,13 @@ Background:
 Scenario: login as a user
 	Then I should see my user page
 
+Scenario: incorrect login info
+	Given I log out
+	And log in with the wrong information
+	Then I should not see my user page
+
 Scenario: view characters of user
 	When I add a character to my account
 	And I am on my user page
 	Then I should see that character
+
