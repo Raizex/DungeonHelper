@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202201754) do
+ActiveRecord::Schema.define(version: 20131202222731) do
+
+  create_table "ability_scores", force: true do |t|
+    t.string   "name"
+    t.integer  "race_modifier"
+    t.integer  "temp_modifier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", force: true do |t|
     t.string   "name"
