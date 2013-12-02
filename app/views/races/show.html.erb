@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Race name:</strong>
+  <%= @race.race_name %>
+</p>
+
+<p>
+  <strong>Race description:</strong>
+  <%= @race.race_description %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @race.size %>
+</p>
+
+<p>
+  <strong>Attribute modifiers:</strong>
+  <%= @race.attribute_modifiers %>
+</p>
+
+<p>
+  <strong>Default languages:</strong>
+  <%= @race.default_languages %>
+</p>
+
+<p>
+  <strong>Available languages:</strong>
+  <%= @race.available_languages %>
+</p>
+
+<%= link_to 'Edit', edit_race_path(@race) %> |
+<%= link_to 'Back', races_path %>

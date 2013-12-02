@@ -25,10 +25,11 @@ class CharactersController < ApplicationController
   # POST /characters.json
   def create
     @character = Character.new(character_params)
+    @character.user = current_user
 
     respond_to do |format|
       if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Character was successfully created.' }
         format.json { render action: 'show', status: :created, location: @character }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Character was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +57,7 @@ class CharactersController < ApplicationController
   def destroy
     @character.destroy
     respond_to do |format|
-      format.html { redirect_to characters_url }
+      format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :summary, :user_id, :description_id)
+      params.require(:character).permit(:name, :summary, :campaign, :user_id)
     end
 end
