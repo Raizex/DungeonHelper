@@ -15,5 +15,14 @@
   <%= @character.campaign %>
 </p>
 
+<p>
+	<strong>Race:</strong>
+	<% if @character.hasRace? %>
+		<%= @character.race.name %>
+	<% else %>
+		<%= link_to 'Choose Race', new_race_path(:character_id => @character.id) %>
+	<% end %>
+</p>
+
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', user_path(current_user) %>
