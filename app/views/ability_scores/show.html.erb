@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ability_score.name %>
+</p>
+
+<p>
+  <strong>Race modifier:</strong>
+  <%= @ability_score.race_modifier %>
+</p>
+
+<p>
+  <strong>Temp modifier:</strong>
+  <%= @ability_score.temp_modifier %>
+</p>
+
+<%= link_to 'Edit', edit_ability_score_path(@ability_score) %> |
+<%= link_to 'Back', ability_scores_path %>
