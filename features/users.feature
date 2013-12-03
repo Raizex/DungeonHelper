@@ -21,4 +21,3 @@ Scenario: view characters of user
 	When I add a character to my account
 	And I am on my user page
 	Then I should see that character
-

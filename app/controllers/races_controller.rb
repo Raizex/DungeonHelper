@@ -25,7 +25,6 @@ class RacesController < ApplicationController
   # POST /races.json
   def create
     @race = Race.new(race_params)
-
     respond_to do |format|
       if @race.save
         format.html { redirect_to @race, notice: 'Race was successfully created.' }
@@ -69,6 +68,6 @@ class RacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def race_params
-      params.require(:race).permit(:race_name, :race_description, :size, :attribute_modifiers, :default_languages, :available_languages)
+      params.require(:race).permit(:race_name, :race_description, :size, :attribute_modifiers, :default_languages, :available_languages, :character_id)
     end
 end
