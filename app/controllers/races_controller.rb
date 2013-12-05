@@ -27,7 +27,7 @@ class RacesController < ApplicationController
     @race = Race.new(race_params)
     respond_to do |format|
       if @race.save
-        format.html { redirect_to @race, notice: 'Race was successfully created.' }
+        format.html { redirect_to( character_path(@race.character_id))}
         format.json { render action: 'show', status: :created, location: @race }
       else
         format.html { render action: 'new' }
@@ -55,7 +55,7 @@ class RacesController < ApplicationController
   def destroy
     @race.destroy
     respond_to do |format|
-      format.html { redirect_to races_url }
+      format.html { redirect_to(:back) }
       format.json { head :no_content }
     end
   end

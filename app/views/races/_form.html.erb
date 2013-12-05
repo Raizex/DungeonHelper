@@ -35,8 +35,12 @@
     <%= f.label :available_languages %><br>
     <%= f.text_field :available_languages %>
   </div>
-  <div class="actions">
+
+  <div class="field">
     <%= f.hidden_field :character_id, :value => params[:character_id] %>
+  </div>
+
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
