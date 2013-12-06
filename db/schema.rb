@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20131205170857) do
     t.datetime "updated_at"
   end
 
+  create_table "attribute_lists", force: true do |t|
+    t.integer  "character_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "characters", force: true do |t|
     t.string   "name"
     t.string   "summary"

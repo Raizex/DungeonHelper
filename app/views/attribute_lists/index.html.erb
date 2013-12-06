@@ -1,0 +1,25 @@
+<h1>Listing attribute_lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attribute_lists.each do |attribute_list| %>
+      <tr>
+        <td><%= link_to 'Show', attribute_list %></td>
+        <td><%= link_to 'Edit', edit_attribute_list_path(attribute_list) %></td>
+        <td><%= link_to 'Destroy', attribute_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attribute list', new_attribute_list_path %>
