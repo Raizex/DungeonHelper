@@ -17,11 +17,27 @@
 
 <p>
 	<strong>Race:</strong>
-	<% if @character.hasRace? %>
-		<%= @character.race.race_name %>
-		<%= link_to 'Remove', @character.race, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% if Race.exists?(@character.race_id) %>
+		<%= Race.find(@character.race_id).race_name %>
+		<%= link_to 'Show', race_path(@character.race_id) %>
+		<%= form_for(@character) do |f| %>
+		  <div class="field">
+		    <%= f.hidden_field :race_id, :value => nil %>
+		  </div>
+		  <div class="actions">
+		    <%= link_to_submit 'Remove Race'%>
+		  </div>
+		<% end %>
 	<% else %>
-		<%= link_to 'Choose Race', new_race_path(:character_id => @character.id) %>
+		<%= form_for(@character) do |f| %>
+		  <div class="field">
+		    <%= f.label :race_id %><br>
+		    <%= f.select(:race_id, Race.all.map { |r| [r.race_name, r.id] }) %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
 	<% end %>
 </p>
 

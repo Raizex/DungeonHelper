@@ -31,9 +31,9 @@
 </p>
 
 <p>
-  <strong>Character Id:</strong>
-  <%= @race.character_id %>
+  <strong>Race Id:</strong>
+  <%= @race.id %>
 </p>
 
 <%= link_to 'Edit', edit_race_path(@race) %> |
-<%= link_to 'Back', races_path %>
+<%= link_to 'Back', :back %>

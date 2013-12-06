@@ -10,7 +10,7 @@ DungeonHelper::Application.routes.draw do
   get "user_sessions/create"
   get "user_sessions/destroy"
   
-  root :to => 'users#index'
+  root :to => 'characters#index'
   resources :user_sessions
   resources :users
 
