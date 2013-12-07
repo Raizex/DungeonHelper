@@ -35,7 +35,7 @@
 		    <%= f.select(:race_id, Race.all.map { |r| [r.race_name, r.id] }) %>
 		  </div>
 		  <div class="actions">
-		    <%= f.submit %>
+		    <%= f.submit "Update Character", :name => "UpdateCharacter", :value => "Update Race" %>
 		  </div>
 		<% end %>
 	<% end %>
