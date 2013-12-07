@@ -1,16 +1,19 @@
-Feature: a character page will show the things that make up that character, including description, ability scores, skill list, race, class, etc.
+Feature: Characters can be created be created, edited, and destroyed from a users home page.
 
-	As a user,
-	So that I can view the attributes that make up my character,
-	I would like to view a page devoted to my character that shows those attributes
+	As a user
+	in order to select one of my characters
+	I would like to see a list of my character sheets under my account that contains a name, a short summary, and the name of the campaign that the character is assigned to.
 
 Background:
-	Given I added a user
-	And there is a race in the database
-	And I login with my account
-	And I add a character to my account
-	And I am on my character page
+	Given I have logged in
+	And I am on my user page
 
-Scenario: See the race once chosen
-	When I choose a race
-	Then I should see the name of that race on the character page
+Scenario: Beggining character creation
+	When I am on my user page
+	And I click on 'New Character'
+	Then I should see the new character form
+
+Scenario: Creating a new character
+	When I create a new character
+	And I am on my user page
+	Then I should see that character

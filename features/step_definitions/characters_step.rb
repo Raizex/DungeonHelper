@@ -1,5 +1,5 @@
 Given(/^I am on my character page$/) do
-  visit character_path(@character)
+  visit character_path(1)
 end
 
 Given(/^there is a race in the database$/) do
