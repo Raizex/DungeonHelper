@@ -1,0 +1,43 @@
+<h1>Listing pathfinder_classes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class name</th>
+      <th>Class description</th>
+      <th>Hit dice</th>
+      <th>Weapon proficiencies</th>
+      <th>Armor proficiencies</th>
+      <th>Class skills</th>
+      <th>Class abilities</th>
+      <th>Base attack bonuses</th>
+      <th>Base saves</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pathfinder_classes.each do |pathfinder_class| %>
+      <tr>
+        <td><%= pathfinder_class.class_name %></td>
+        <td><%= pathfinder_class.class_description %></td>
+        <td><%= pathfinder_class.hit_dice %></td>
+        <td><%= pathfinder_class.weapon_proficiencies %></td>
+        <td><%= pathfinder_class.armor_proficiencies %></td>
+        <td><%= pathfinder_class.class_skills %></td>
+        <td><%= pathfinder_class.class_abilities %></td>
+        <td><%= pathfinder_class.base_attack_bonuses %></td>
+        <td><%= pathfinder_class.base_saves %></td>
+        <td><%= link_to 'Show', pathfinder_class %></td>
+        <td><%= link_to 'Edit', edit_pathfinder_class_path(pathfinder_class) %></td>
+        <td><%= link_to 'Destroy', pathfinder_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pathfinder class', new_pathfinder_class_path %>

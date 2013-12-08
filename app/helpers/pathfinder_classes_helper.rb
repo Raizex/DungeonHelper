@@ -1,0 +1,2 @@
+module PathfinderClassesHelper
+end

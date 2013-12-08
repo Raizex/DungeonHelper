@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Class name:</strong>
+  <%= @pathfinder_class.class_name %>
+</p>
+
+<p>
+  <strong>Class description:</strong>
+  <%= @pathfinder_class.class_description %>
+</p>
+
+<p>
+  <strong>Hit dice:</strong>
+  <%= @pathfinder_class.hit_dice %>
+</p>
+
+<p>
+  <strong>Weapon proficiencies:</strong>
+  <%= @pathfinder_class.weapon_proficiencies %>
+</p>
+
+<p>
+  <strong>Armor proficiencies:</strong>
+  <%= @pathfinder_class.armor_proficiencies %>
+</p>
+
+<p>
+  <strong>Class skills:</strong>
+  <%= @pathfinder_class.class_skills %>
+</p>
+
+<p>
+  <strong>Class abilities:</strong>
+  <%= @pathfinder_class.class_abilities %>
+</p>
+
+<p>
+  <strong>Base attack bonuses:</strong>
+  <%= @pathfinder_class.base_attack_bonuses %>
+</p>
+
+<p>
+  <strong>Base saves:</strong>
+  <%= @pathfinder_class.base_saves %>
+</p>
+
+<%= link_to 'Edit', edit_pathfinder_class_path(@pathfinder_class) %> |
+<%= link_to 'Back', pathfinder_classes_path %>

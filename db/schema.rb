@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207212825) do
+ActiveRecord::Schema.define(version: 20131208204130) do
 
   create_table "ability_scores", force: true do |t|
     t.string   "name"
@@ -50,6 +50,27 @@ ActiveRecord::Schema.define(version: 20131207212825) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "character_id"
+  end
+
+  create_table "pathfinder_classes", force: true do |t|
+    t.string   "class_name"
+    t.string   "hit_dice"
+    t.string   "weapon_proficiencies"
+    t.string   "armor_proficiencies"
+    t.string   "class_skills"
+    t.string   "class_abilities"
+    t.string   "base_attack_bonuses"
+    t.string   "base_saves"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "role"
+    t.string   "available_alignments"
+    t.string   "starting_wealth"
+    t.integer  "base_skill_ranks_per_level"
+    t.string   "class_spells_per_day"
+    t.string   "spell_list_type"
+    t.string   "bonus_languages"
+    t.string   "miscelaneous_features"
   end
 
   create_table "races", force: true do |t|

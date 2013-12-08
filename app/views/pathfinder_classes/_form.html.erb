@@ -1,0 +1,53 @@
+<%= form_for(@pathfinder_class) do |f| %>
+  <% if @pathfinder_class.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pathfinder_class.errors.count, "error") %> prohibited this pathfinder_class from being saved:</h2>
+
+      <ul>
+      <% @pathfinder_class.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :class_name %><br>
+    <%= f.text_field :class_name %>
+  </div>
+  <div class="field">
+    <%= f.label :class_description %><br>
+    <%= f.text_field :class_description %>
+  </div>
+  <div class="field">
+    <%= f.label :hit_dice %><br>
+    <%= f.text_field :hit_dice %>
+  </div>
+  <div class="field">
+    <%= f.label :weapon_proficiencies %><br>
+    <%= f.text_field :weapon_proficiencies %>
+  </div>
+  <div class="field">
+    <%= f.label :armor_proficiencies %><br>
+    <%= f.text_field :armor_proficiencies %>
+  </div>
+  <div class="field">
+    <%= f.label :class_skills %><br>
+    <%= f.text_field :class_skills %>
+  </div>
+  <div class="field">
+    <%= f.label :class_abilities %><br>
+    <%= f.text_field :class_abilities %>
+  </div>
+  <div class="field">
+    <%= f.label :base_attack_bonuses %><br>
+    <%= f.text_field :base_attack_bonuses %>
+  </div>
+  <div class="field">
+    <%= f.label :base_saves %><br>
+    <%= f.text_field :base_saves %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

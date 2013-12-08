@@ -1,0 +1,1 @@
+json.extract! @pathfinder_class, :class_name, :class_description, :hit_dice, :weapon_proficiencies, :armor_proficiencies, :class_skills, :class_abilities, :base_attack_bonuses, :base_saves, :created_at, :updated_at
