@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Class name</th>
-      <th>Class description</th>
+      <th>Role</th>
       <th>Hit dice</th>
       <th>Weapon proficiencies</th>
       <th>Armor proficiencies</th>
@@ -12,9 +12,13 @@
       <th>Class abilities</th>
       <th>Base attack bonuses</th>
       <th>Base saves</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Availabe Alignments</th>
+      <th>Starting Wealth</th>
+      <th>Base Skill Ranks Per Level</th>
+      <th>Class Spells Per Day</th>
+      <th>Spell List Type</th>
+      <th>Bonus Languages</th>
+      <th>Miscelaneous Features</th>
     </tr>
   </thead>
 
@@ -22,7 +26,7 @@
     <% @pathfinder_classes.each do |pathfinder_class| %>
       <tr>
         <td><%= pathfinder_class.class_name %></td>
-        <td><%= pathfinder_class.class_description %></td>
+        <td><%= pathfinder_class.role %></td>
         <td><%= pathfinder_class.hit_dice %></td>
         <td><%= pathfinder_class.weapon_proficiencies %></td>
         <td><%= pathfinder_class.armor_proficiencies %></td>

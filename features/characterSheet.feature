@@ -6,7 +6,7 @@ Feature: a character page will show the things that make up that character, incl
 
 Background:
 	Given I added a user
-	And there is a race in the database
+	And there is a race available
 	And I login with my account
 	And I create a new character
 	And I am on my character page
