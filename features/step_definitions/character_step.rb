@@ -6,15 +6,17 @@ end
 When(/^I create a new character$/) do
 	@character = Character.new({:name => "Hosiko",
                               :summary => "Buttspawn",
-                              :campaign => "There and somewhere else again."})
-	step "I am on my user page"
-	step "I click on 'New Character'"
-	fill_in 'character_name', with: @character.name
-	fill_in 'character_summary', with: @character.summary
-	fill_in 'character_campaign', with: @character.campaign
-	fill_in 'character_name', with: @character.name
-	fill_in 'character_name', with: @character.name
-	click_button 'Create Character'
+                              :campaign => "There and somewhere else again.",
+                              :user_id => @user.id})
+	# step "I am on my user page"
+	# step "I click on 'New Character'"
+	# fill_in 'character_name', with: @character.name
+	# fill_in 'character_summary', with: @character.summary
+	# fill_in 'character_campaign', with: @character.campaign
+	# fill_in 'character_name', with: @character.name
+	# fill_in 'character_name', with: @character.name
+	# click_button 'Create Character'
+	@character.save
 end
 
 Then(/^I should see that character$/) do

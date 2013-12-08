@@ -28,7 +28,11 @@ class DescriptionsController < ApplicationController
 
     respond_to do |format|
       if @description.save
-        format.html { redirect_to @description, notice: 'Description was successfully created.' }
+        if @description.character_id != nil
+          format.html { redirect_to character_path(@description.character_id, notice: 'Description was successfully updated.') }
+        else
+          format.html { redirect_to @description, notice: 'Description was successfully updated.' }
+        end
         format.json { render action: 'show', status: :created, location: @description }
       else
         format.html { render action: 'new' }
@@ -42,7 +46,11 @@ class DescriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @description.update(description_params)
-        format.html { redirect_to @description, notice: 'Description was successfully updated.' }
+        if @description.character_id != nil
+          format.html { redirect_to character_path(@description.character_id, notice: 'Description was successfully updated.') }
+        else
+          format.html { redirect_to @description, notice: 'Description was successfully updated.' }
+        end
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +64,9 @@ class DescriptionsController < ApplicationController
   def destroy
     @description.destroy
     respond_to do |format|
-      format.html { redirect_to descriptions_url }
+      # redirect back, as descriptions will always be deleted via the character
+      # page
+      format.html { redirect_to(:back) }
       format.json { head :no_content }
     end
   end
@@ -69,6 +79,6 @@ class DescriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def description_params
-      params.require(:description).permit(:name, :alignment, :player, :deity, :homeland, :gender, :height, :weight, :eyes, :hair)
+      params.require(:description).permit(:name, :alignment, :player, :deity, :homeland, :gender, :height, :weight, :eyes, :hair, :character_id)
     end
 end

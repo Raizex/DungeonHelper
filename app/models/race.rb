@@ -1,6 +1,7 @@
 class Race < ActiveRecord::Base
-	belongs_to :character
+	has_many :characters
 
+	#Returns a hash of attribute modifiers specific to the race
 	def attributeModifiers 
 		attrMods = Hash.new
 		attrStrings = @attribute_modifiers.split(', ')

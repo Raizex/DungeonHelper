@@ -44,9 +44,9 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.update(character_params)
         if params["UpdateCharacter"] == "Update Race"
-          format.html { redirect_to(:back) }
+          format.html { redirect_to(:back, notice: 'Race updated') }
         else
-          format.html { redirect_to user_path(current_user), notice: 'Character was successfully updated.' }
+          format.html { redirect_to character_path, notice: 'Character was successfully updated.' }
         end
         format.json { head :no_content }
       else

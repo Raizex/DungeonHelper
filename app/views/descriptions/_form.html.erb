@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :player %><br>
-    <%= f.text_field :player %>
+    <%= f.text_field :player, :value=> current_user.user_name %>
   </div>
   <div class="field">
     <%= f.label :deity %><br>
@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :height %><br>
-    <%= f.number_field :height %>
+    <%= f.text_field :height %>
   </div>
   <div class="field">
     <%= f.label :weight %><br>
-    <%= f.number_field :weight %>
+    <%= f.text_field :weight %>
   </div>
   <div class="field">
     <%= f.label :eyes %><br>
@@ -46,6 +46,9 @@
   <div class="field">
     <%= f.label :hair %><br>
     <%= f.text_field :hair %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :character_id, :value => params[:character_id] %>
   </div>
   <div class="actions">
     <%= f.submit %>

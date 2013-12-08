@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @character.name %>
@@ -18,11 +16,7 @@
 <div class = "description">
 	<h3><strong>Description</strong></h3>
 	<% if @character.hasDescription? %>
-		<p>
-		  <strong>Name:</strong>
-		  <%= @description.name %>
-		</p>
-
+		<% @description = @character.description %>
 		<p>
 		  <strong>Alignment:</strong>
 		  <%= @description.alignment %>
@@ -67,7 +61,13 @@
 		  <strong>Hair:</strong>
 		  <%= @description.hair %>
 		</p>
-	<% %>	
+		<p>
+        <p>
+        	<%= link_to 'Destroy', @description, method: :delete, data: { confirm: 'Are you sure?' } %>
+        	<%= link_to 'Edit', edit_description_path(@description, :character_id => @character.id) %>
+        </p>
+	<% else %>	
+		<%= link_to 'Add Description', new_description_path(:character_id => @character.id)%>
 	<% end %>
 </div>
 
