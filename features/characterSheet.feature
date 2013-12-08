@@ -12,6 +12,11 @@ Background:
 	And I am on my character page
 
 Scenario: See the race once chosen
-	Given I am on my character page
 	When I choose a race
 	Then I should see the name of that race on the character page
+
+Scenario: See the description on the character sheet page
+	When I add a description
+	Then I should see that description on the character page
+	When I remove a description
+	Then I should not see that description on the character page
