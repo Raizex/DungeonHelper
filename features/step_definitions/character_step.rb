@@ -8,15 +8,13 @@ When(/^I create a new character$/) do
                               :summary => "Buttspawn",
                               :campaign => "There and somewhere else again.",
                               :user_id => @user.id})
-	# step "I am on my user page"
-	# step "I click on 'New Character'"
-	# fill_in 'character_name', with: @character.name
-	# fill_in 'character_summary', with: @character.summary
-	# fill_in 'character_campaign', with: @character.campaign
-	# fill_in 'character_name', with: @character.name
-	# fill_in 'character_name', with: @character.name
-	# click_button 'Create Character'
-	@character.save
+	step "I am on my user page"
+	step "I click on 'New Character'"
+	fill_in 'character_name', with: @character.name
+	fill_in 'character_summary', with: @character.summary
+	fill_in 'character_campaign', with: @character.campaign
+	click_button 'Create Character'
+	@character = Character.find_by_name(@character.name)
 end
 
 Then(/^I should see that character$/) do
