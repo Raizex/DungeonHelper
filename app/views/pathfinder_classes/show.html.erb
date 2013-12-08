@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Class description:</strong>
-  <%= @pathfinder_class.class_description %>
+  <strong>Role:</strong>
+  <%= @pathfinder_class.role %>
 </p>
 
 <p>
@@ -43,6 +43,41 @@
 <p>
   <strong>Base saves:</strong>
   <%= @pathfinder_class.base_saves %>
+</p>
+
+<p>
+  <strong>Available Alignments:</strong>
+  <%= @pathfinder_class.available_alignments %>
+</p>
+
+<p>
+  <strong>Starting Wealth:</strong>
+  <%= @pathfinder_class.starting_wealth %>
+</p>
+
+<p>
+  <strong>Base Skill Ranks Per Level:</strong>
+  <%= @pathfinder_class.base_skill_ranks_per_level %>
+</p>
+
+<p>
+  <strong>Class Spells per Day:</strong>
+  <%= @pathfinder_class.class_spells_per_day %>
+</p>
+
+<p>
+  <strong>Spell List Type:</strong>
+  <%= @pathfinder_class.spell_list_type %>
+</p>
+
+<p>
+  <strong>Bonus Languages:</strong>
+  <%= @pathfinder_class.bonus_languages %>
+</p>
+
+<p>
+  <strong>Misceleaneous Class Features:</strong>
+  <%= @pathfinder_class.miscelaneous_features %>
 </p>
 
 <%= link_to 'Edit', edit_pathfinder_class_path(@pathfinder_class) %> |

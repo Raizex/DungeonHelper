@@ -16,13 +16,39 @@
     <%= f.text_field :class_name %>
   </div>
   <div class="field">
-    <%= f.label :class_description %><br>
-    <%= f.text_field :class_description %>
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </div>
+  <div class="field">
+    <%= f.label :available_alignments %><br>
+    <%= f.text_field :available_alignments %>
   </div>
   <div class="field">
     <%= f.label :hit_dice %><br>
     <%= f.text_field :hit_dice %>
   </div>
+  <div class="field">
+    <%= f.label :starting_wealth %><br>
+    <%= f.text_field :starting_wealth %>
+  </div>
+
+  <div class="field">
+    <%= f.label :base_skill_ranks_per_level %><br>
+    <%= f.text_field :base_skill_ranks_per_level %>
+  </div>
+    <div class="field">
+    <%= f.label :class_spells_per_day %><br>
+    <%= f.text_field :class_spells_per_day %>
+  </div>
+    <div class="field">
+    <%= f.label :spell_list_type %><br>
+    <%= f.text_field :spell_list_type %>
+  </div>
+    <div class="field">
+    <%= f.label :bonus_languages %><br>
+    <%= f.text_field :bonus_languages %>
+  </div>
+
   <div class="field">
     <%= f.label :weapon_proficiencies %><br>
     <%= f.text_field :weapon_proficiencies %>
@@ -46,6 +72,10 @@
   <div class="field">
     <%= f.label :base_saves %><br>
     <%= f.text_field :base_saves %>
+  </div>
+  <div class="field">
+    <%= f.label :miscelaneous_features %><br>
+    <%= f.text_field :miscelaneous_features %>
   </div>
   <div class="actions">
     <%= f.submit %>

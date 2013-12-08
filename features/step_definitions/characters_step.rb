@@ -2,7 +2,7 @@ Given(/^I am on my character page$/) do
   visit character_path(@character)
 end
 
-Given(/^there is a race in the database$/) do
+Given(/^there is a race available$/) do
   @race = Race.new({:race_name => "Dwarf",
   					:race_description => "Short, drunk, and bearded",
   					:size => "Medium",
