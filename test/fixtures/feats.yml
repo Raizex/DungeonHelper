@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type: 
+  description: MyString
+  prerequisites: MyString
+  prerequisite_feats: MyString
+  link: MyString
+
+two:
+  name: MyString
+  type: 
+  description: MyString
+  prerequisites: MyString
+  prerequisite_feats: MyString
+  link: MyString

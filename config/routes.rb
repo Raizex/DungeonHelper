@@ -1,5 +1,9 @@
 DungeonHelper::Application.routes.draw do
   
+  resources :feat_assignments
+
+  resources :feats
+
   resources :class_levels
 
   resources :pathfinder_classes
