@@ -1,4 +1,4 @@
-<%= form_for(@attribute_list) do |f| %>
+<%= form_for [@character, @attribute_list] do |f| %>
   <% if @attribute_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@attribute_list.errors.count, "error") %> prohibited this attribute_list from being saved:</h2>
