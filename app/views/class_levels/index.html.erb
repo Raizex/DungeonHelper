@@ -1,0 +1,31 @@
+<h1>Listing class_levels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>Class</th>
+      <th>Character</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_levels.each do |class_level| %>
+      <tr>
+        <td><%= class_level.level %></td>
+        <td><%= class_level.class_id %></td>
+        <td><%= class_level.character_id %></td>
+        <td><%= link_to 'Show', class_level %></td>
+        <td><%= link_to 'Edit', edit_class_level_path(class_level) %></td>
+        <td><%= link_to 'Destroy', class_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class level', new_class_level_path %>

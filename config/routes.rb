@@ -1,5 +1,7 @@
 DungeonHelper::Application.routes.draw do
   
+  resources :class_levels
+
   resources :pathfinder_classes
 
   resources :attribute_lists

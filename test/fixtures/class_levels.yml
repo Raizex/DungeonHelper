@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  level: 
+  class_id: 
+  character_id: 
+
+two:
+  level: 
+  class_id: 
+  character_id: 
