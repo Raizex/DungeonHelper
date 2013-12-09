@@ -1,0 +1,29 @@
+<h1>Listing feat_assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Feat</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feat_assignments.each do |feat_assignment| %>
+      <tr>
+        <td><%= feat_assignment.character_id %></td>
+        <td><%= feat_assignment.feat_id %></td>
+        <td><%= link_to 'Show', feat_assignment %></td>
+        <td><%= link_to 'Edit', edit_feat_assignment_path(feat_assignment) %></td>
+        <td><%= link_to 'Destroy', feat_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feat assignment', new_feat_assignment_path %>
