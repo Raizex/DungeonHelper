@@ -1,5 +1,10 @@
 class AttributeListsController < ApplicationController
   before_action :set_attribute_list, only: [:show, :edit, :update, :destroy]
+  before_action :getCharacter
+
+  def getCharacter
+    @character = Character.find(params[:character_id])
+  end
 
   # GET /attribute_lists
   # GET /attribute_lists.json
@@ -24,6 +29,7 @@ class AttributeListsController < ApplicationController
   # POST /attribute_lists
   # POST /attribute_lists.json
   def create
+    @character
     @attribute_list = AttributeList.new(attribute_list_params)
 
     respond_to do |format|

@@ -9,7 +9,7 @@ DungeonHelper::Application.routes.draw do
   resources :ability_scores
 
   resources :characters do
-    resources :attrubute_list
+    resources :attribute_lists
   end
 
   get "user_sessions/new"
