@@ -69,6 +69,6 @@ class PathfinderClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pathfinder_class_params
-      params.require(:pathfinder_class).permit(:class_name, :class_description, :hit_dice, :weapon_proficiencies, :armor_proficiencies, :class_skills, :class_abilities, :base_attack_bonuses, :base_saves)
+      params.require(:pathfinder_class).permit(:class_name, :role, :hit_dice, :weapon_proficiencies, :armor_proficiencies, :class_skills, :class_abilities, :base_attack_bonuses, :base_saves, :available_alignments, :starting_wealth, :base_skill_ranks_per_level, :class_spells_per_day, :spell_list_type, :bonus_languages, :miscelaneous_features)
     end
 end

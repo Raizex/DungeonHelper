@@ -12,7 +12,7 @@
       <th>Class abilities</th>
       <th>Base attack bonuses</th>
       <th>Base saves</th>
-      <th>Availabe Alignments</th>
+      <th>Available Alignments</th>
       <th>Starting Wealth</th>
       <th>Base Skill Ranks Per Level</th>
       <th>Class Spells Per Day</th>
@@ -34,6 +34,13 @@
         <td><%= pathfinder_class.class_abilities %></td>
         <td><%= pathfinder_class.base_attack_bonuses %></td>
         <td><%= pathfinder_class.base_saves %></td>
+        <td><%= pathfinder_class.available_alignments %></td>
+        <td><%= pathfinder_class.starting_wealth %></td>
+        <td><%= pathfinder_class.base_skill_ranks_per_level %></td>
+        <td><%= pathfinder_class.class_spells_per_day %></td>
+        <td><%= pathfinder_class.spell_list_type %></td>
+        <td><%= pathfinder_class.bonus_languages %></td>
+        <td><%= pathfinder_class.miscelaneous_features %></td>
         <td><%= link_to 'Show', pathfinder_class %></td>
         <td><%= link_to 'Edit', edit_pathfinder_class_path(pathfinder_class) %></td>
         <td><%= link_to 'Destroy', pathfinder_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>

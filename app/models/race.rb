@@ -4,7 +4,7 @@ class Race < ActiveRecord::Base
 	#Returns a hash of attribute modifiers specific to the race
 	def attributeModifiers 
 		attrMods = Hash.new
-		attrStrings = @attribute_modifiers.split(', ')
+		attrStrings = self.attribute_modifiers.split(', ')
 		attrStrings.each do |mod|
 			modValue = mod.split(' ')
 			attrMods[modValue[0]] = modValue[1]
