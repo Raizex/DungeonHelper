@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Type</th>
+      <th>Types</th>
       <th>Description</th>
       <th>Prerequisites</th>
       <th>Prerequisite feats</th>
@@ -19,7 +19,7 @@
     <% @feats.each do |feat| %>
       <tr>
         <td><%= feat.name %></td>
-        <td><%= feat.type %></td>
+        <td><%= feat.feat_types %></td>
         <td><%= feat.description %></td>
         <td><%= feat.prerequisites %></td>
         <td><%= feat.prerequisite_feats %></td>

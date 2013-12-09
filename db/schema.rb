@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209051520) do
+ActiveRecord::Schema.define(version: 20131209061858) do
 
   create_table "ability_scores", force: true do |t|
     t.string   "name"
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 20131209051520) do
 
   create_table "feats", force: true do |t|
     t.string   "name"
-    t.string   "type"
     t.string   "description"
     t.string   "prerequisites"
     t.string   "prerequisite_feats"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "feat_types"
   end
 
   create_table "pathfinder_classes", force: true do |t|

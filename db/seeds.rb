@@ -37,10 +37,35 @@ classes = [{:class_name => "Fighter",
     		:bonus_languages => nil,
     		:miscelaneous_features => nil}]
 
+feats = [{:name => "Power Attack",
+	      :feat_types => "G, C",
+	      :description => "Trade melee attack bonus for damage",
+	      :prerequisites => "STR 13, base attack bonus +1",
+	      :prerequisite_feats => nil,
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/power-attack-combat---final"},
+	     # {:name => "",
+	     #  :type => "",
+	     #  :description => "",
+	     #  :prerequisites => "",
+	     #  :prerequisite_feats => "",
+	      #  :link => ""}
+	  ]
+
+
 races.each do |race|
-  Race.create!(race)
+  unless Race.exists?(race_name: race[:race_name])
+  	Race.create!(race)
+  end
 end
 
 classes.each do |pclass|
-	PathfinderClass.create!(pclass)
+	unless PathfinderClass.exists?(class_name: pclass[:class_name])
+		PathfinderClass.create!(pclass)
+	end
+end
+
+feats.each do |feat|
+	unless Feat.exists?(name: feat[:name])
+		Feat.create!(feat)
+	end
 end
