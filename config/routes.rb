@@ -4,13 +4,13 @@ DungeonHelper::Application.routes.draw do
 
   resources :pathfinder_classes
 
-  resources :attribute_lists
+  resources :races, :only => [:index, :show]
 
   resources :ability_scores
 
-  resources :races
-
-  resources :characters
+  resources :characters do
+    resources :attrubute_list
+  end
 
   get "user_sessions/new"
   get "user_sessions/create"

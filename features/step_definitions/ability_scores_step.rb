@@ -13,5 +13,5 @@ Given(/^I have completed the first step of the character creation process$/) do
 end
 
 Then(/^should be able to choose my ability scores$/) do
-	assert(page.has_css?('form#new_attrubute_list'), "Did not have new character form.")
+	assert(page.has_css?('form#new_attribute_list'), "Did not have new attrribute list form.")
 end
