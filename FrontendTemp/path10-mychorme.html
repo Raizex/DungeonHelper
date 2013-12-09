@@ -1,0 +1,2028 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="utf-8">
+            <style>
+			    body {margin: 0 0 0 0;}
+                .small-text-cell {font-family:helvetica, sans-serif; font-size:4pt; border:0px; text-align:center; width:4em;}
+                .big-text {font-family:helvetica, sans-serif; font-size:11pt; text-align:center; background-color:black; color:white; width:2em;}
+				.less-big-text {font-family:helvetica, sans-serif; font-size:8pt; text-align:center; background-color:black; color:white;}
+                .small-text {font-family:helvetica, sans-serif; font-size:6pt;}
+				.medium-text {font-family:helvetica, sans-serif; font-size:7pt;}
+				.thin-border {border:1px solid black;}
+                .rows-border {outline: thin solid black;}
+				.black-text{color:black;}
+				.red-text {color:red;}
+				.green-text {color:green;}
+            </style> 
+			<!-- 	.rows-border {outline: thin solid black;} -->
+            <script>
+                var total=0; dr=0; ranksFocusValue=0;
+                window.addEventListener("load", start, false);
+                function start() { setTotal(0); setDR(0);
+                    document.getElementById("acrobatics-checkbox").addEventListener("change", acrobaticsCheckbox, false);
+                    document.getElementById("acrobatics-ranks").addEventListener("blur", acrobaticsRanksBlur, false);
+                    document.getElementById("acrobatics-ranks").addEventListener("focus", acrobaticsRanksFocus, false);
+                    document.getElementById("appraise-checkbox").addEventListener("change", appraiseCheckbox, false);
+                    document.getElementById("appraise-ranks").addEventListener("blur", appraiseRanksBlur, false);
+                    document.getElementById("appraise-ranks").addEventListener("focus", appraiseRanksFocus, false);
+                    document.getElementById("bluff-checkbox").addEventListener("change", bluffCheckbox, false);
+                    document.getElementById("bluff-ranks").addEventListener("blur", bluffRanksBlur, false);
+                    document.getElementById("bluff-ranks").addEventListener("focus", bluffRanksFocus, false);
+                    document.getElementById("climb-checkbox").addEventListener("change", climbCheckbox, false);
+                    document.getElementById("climb-ranks").addEventListener("blur", climbRanksBlur, false);
+                    document.getElementById("climb-ranks").addEventListener("focus", climbRanksFocus, false);
+                    document.getElementById("craft1-checkbox").addEventListener("change", craft1Checkbox, false);
+                    document.getElementById("craft1-ranks").addEventListener("blur", craft1RanksBlur, false);
+                    document.getElementById("craft1-ranks").addEventListener("focus", craft1RanksFocus, false);
+                    document.getElementById("craft2-checkbox").addEventListener("change", craft2Checkbox, false);
+                    document.getElementById("craft2-ranks").addEventListener("blur", craft2RanksBlur, false);
+                    document.getElementById("craft2-ranks").addEventListener("focus", craft2RanksFocus, false);
+                    document.getElementById("craft3-checkbox").addEventListener("change", craft3Checkbox, false);
+                    document.getElementById("craft3-ranks").addEventListener("blur", craft3RanksBlur, false);
+                    document.getElementById("craft3-ranks").addEventListener("focus", craft3RanksFocus, false);
+                    document.getElementById("diplomacy-checkbox").addEventListener("change", diplomacyCheckbox, false);
+                    document.getElementById("diplomacy-ranks").addEventListener("blur", diplomacyRanksBlur, false);
+                    document.getElementById("diplomacy-ranks").addEventListener("focus", diplomacyRanksFocus, false);
+                    document.getElementById("disguise-checkbox").addEventListener("change", disableDeviceCheckbox, false);
+                    document.getElementById("disableDevice-ranks").addEventListener("blur", disableDeviceRanksBlur, false);
+                    document.getElementById("disableDevice-ranks").addEventListener("focus", disableDeviceRanksFocus, false);
+                    document.getElementById("disguise-checkbox").addEventListener("change", disguiseCheckbox, false);
+                    document.getElementById("disguise-ranks").addEventListener("blur", disguiseRanksBlur, false);
+                    document.getElementById("disguise-ranks").addEventListener("focus", disguiseRanksFocus, false);
+                    document.getElementById("escapeArtist-checkbox").addEventListener("change", escapeArtistCheckbox, false);
+                    document.getElementById("escapeArtist-ranks").addEventListener("blur", escapeArtistRanksBlur, false);
+                    document.getElementById("escapeArtist-ranks").addEventListener("focus", escapeArtistRanksFocus, false);
+                    document.getElementById("fly-checkbox").addEventListener("change", flyCheckbox, false);
+                    document.getElementById("fly-ranks").addEventListener("blur", flyRanksBlur, false);
+                    document.getElementById("fly-ranks").addEventListener("focus", flyRanksFocus, false);
+                    document.getElementById("handleAnimal-checkbox").addEventListener("change", handleAnimalCheckbox, false);
+                    document.getElementById("handleAnimal-ranks").addEventListener("blur", handleAnimalRanksBlur, false);
+                    document.getElementById("handleAnimal-ranks").addEventListener("focus", handleAnimalRanksFocus, false);
+                    document.getElementById("heal-checkbox").addEventListener("change", healCheckbox, false);
+                    document.getElementById("heal-ranks").addEventListener("blur", healRanksBlur, false);
+                    document.getElementById("heal-ranks").addEventListener("focus", healRanksFocus, false);
+                    document.getElementById("intimidate-checkbox").addEventListener("change", intimidateCheckbox, false);
+                    document.getElementById("intimidate-ranks").addEventListener("blur", intimidateRanksBlur, false);
+                    document.getElementById("intimidate-ranks").addEventListener("focus", intimidateRanksFocus, false);
+                    document.getElementById("knowledgeArcana-checkbox").addEventListener("change", knowledgeArcanaCheckbox, false);
+                    document.getElementById("knowledgeArcana-ranks").addEventListener("blur", knowledgeArcanaRanksBlur, false);
+                    document.getElementById("knowledgeArcana-ranks").addEventListener("focus", knowledgeArcanaRanksFocus, false);
+                    document.getElementById("knowledgeDungeoneering-checkbox").addEventListener("change", knowledgeDungeoneeringCheckbox, false);
+                    document.getElementById("knowledgeDungeoneering-ranks").addEventListener("blur", knowledgeDungeoneeringRanksBlur, false);
+                    document.getElementById("knowledgeDungeoneering-ranks").addEventListener("focus", knowledgeDungeoneeringRanksFocus, false);
+                    document.getElementById("knowledgeEngineering-checkbox").addEventListener("change", knowledgeEngineeringCheckbox, false);
+                    document.getElementById("knowledgeEngineering-ranks").addEventListener("blur", knowledgeEngineeringRanksBlur, false);
+                    document.getElementById("knowledgeEngineering-ranks").addEventListener("focus", knowledgeEngineeringRanksFocus, false);
+                    document.getElementById("knowledgeGeography-checkbox").addEventListener("change", knowledgeGeographyCheckbox, false);
+                    document.getElementById("knowledgeGeography-ranks").addEventListener("blur", knowledgeGeographyRanksBlur, false);
+                    document.getElementById("knowledgeGeography-ranks").addEventListener("focus", knowledgeGeographyRanksFocus, false);
+                    document.getElementById("knowledgeHistory-checkbox").addEventListener("change", knowledgeHistoryCheckbox, false);
+                    document.getElementById("knowledgeHistory-ranks").addEventListener("blur", knowledgeHistoryRanksBlur, false);
+                    document.getElementById("knowledgeHistory-ranks").addEventListener("focus", knowledgeHistoryRanksFocus, false);
+                    document.getElementById("knowledgeLocal-checkbox").addEventListener("change", knowledgeLocalCheckbox, false);
+                    document.getElementById("knowledgeLocal-ranks").addEventListener("blur", knowledgeLocalRanksBlur, false);
+                    document.getElementById("knowledgeLocal-ranks").addEventListener("focus", knowledgeLocalRanksFocus, false);
+                    document.getElementById("knowledgeNature-checkbox").addEventListener("change", knowledgeNatureCheckbox, false);
+                    document.getElementById("knowledgeNature-ranks").addEventListener("blur", knowledgeNatureRanksBlur, false);
+                    document.getElementById("knowledgeNature-ranks").addEventListener("focus", knowledgeNatureRanksFocus, false);
+                    document.getElementById("knowledgeNobility-checkbox").addEventListener("change", knowledgeNobilityCheckbox, false);
+                    document.getElementById("knowledgeNobility-ranks").addEventListener("blur", knowledgeNobilityRanksBlur, false);
+                    document.getElementById("knowledgeNobility-ranks").addEventListener("focus", knowledgeNobilityRanksFocus, false);
+                    document.getElementById("knowledgePlanes-checkbox").addEventListener("change", knowledgePlanesCheckbox, false);
+                    document.getElementById("knowledgePlanes-ranks").addEventListener("blur", knowledgePlanesRanksBlur, false);
+                    document.getElementById("knowledgePlanes-ranks").addEventListener("focus", knowledgePlanesRanksFocus, false);
+                    document.getElementById("knowledgeReligion-checkbox").addEventListener("change", knowledgeReligionCheckbox, false);
+                    document.getElementById("knowledgeReligion-ranks").addEventListener("blur", knowledgeReligionRanksBlur, false);
+                    document.getElementById("knowledgeReligion-ranks").addEventListener("focus", knowledgeReligionRanksFocus, false);
+                    document.getElementById("linguistics-checkbox").addEventListener("change", linguisticsCheckbox, false);
+                    document.getElementById("linguistics-ranks").addEventListener("blur", linguisticsRanksBlur, false);
+                    document.getElementById("linguistics-ranks").addEventListener("focus", linguisticsRanksFocus, false);
+                    document.getElementById("perception-checkbox").addEventListener("change", perceptionCheckbox, false);
+                    document.getElementById("perception-ranks").addEventListener("blur", perceptionRanksBlur, false);
+                    document.getElementById("perception-ranks").addEventListener("focus", perceptionRanksFocus, false);
+                    document.getElementById("perform1-checkbox").addEventListener("change", perform1Checkbox, false);
+                    document.getElementById("perform1-ranks").addEventListener("blur", perform1RanksBlur, false);
+                    document.getElementById("perform1-ranks").addEventListener("focus", perform1RanksFocus, false);
+                    document.getElementById("perform2-checkbox").addEventListener("change", perform2Checkbox, false);
+                    document.getElementById("perform2-ranks").addEventListener("blur", perform2RanksBlur, false);
+                    document.getElementById("perform2-ranks").addEventListener("focus", perform2RanksFocus, false);
+                    document.getElementById("profession1-checkbox").addEventListener("change", profession1Checkbox, false);
+                    document.getElementById("profession1-ranks").addEventListener("blur", profession1RanksBlur, false);
+                    document.getElementById("profession1-ranks").addEventListener("focus", profession1RanksFocus, false);
+                    document.getElementById("profession2-checkbox").addEventListener("change", profession2Checkbox, false);
+                    document.getElementById("profession2-ranks").addEventListener("blur", profession2RanksBlur, false);
+                    document.getElementById("profession2-ranks").addEventListener("focus", profession2RanksFocus, false);
+                    document.getElementById("ride-checkbox").addEventListener("change", rideCheckbox, false);
+                    document.getElementById("ride-ranks").addEventListener("blur", rideRanksBlur, false);
+                    document.getElementById("ride-ranks").addEventListener("focus", rideRanksFocus, false);
+                    document.getElementById("senseMotive-checkbox").addEventListener("change", senseMotiveCheckbox, false);
+                    document.getElementById("senseMotive-ranks").addEventListener("blur", senseMotiveRanksBlur, false);
+                    document.getElementById("senseMotive-ranks").addEventListener("focus", senseMotiveRanksFocus, false);
+                    document.getElementById("slightOfHand-checkbox").addEventListener("change", slightOfHandCheckbox, false);
+                    document.getElementById("slightOfHand-ranks").addEventListener("blur", slightOfHandRanksBlur, false);
+                    document.getElementById("slightOfHand-ranks").addEventListener("focus", slightOfHandRanksFocus, false);
+                    document.getElementById("spellcraft-checkbox").addEventListener("change", spellcraftCheckbox, false);
+                    document.getElementById("spellcraft-ranks").addEventListener("blur", spellcraftRanksBlur, false);
+                    document.getElementById("spellcraft-ranks").addEventListener("focus", spellcraftRanksFocus, false);
+                    document.getElementById("stealth-checkbox").addEventListener("change", stealthCheckbox, false);
+                    document.getElementById("stealth-ranks").addEventListener("blur", stealthRanksBlur, false);
+                    document.getElementById("stealth-ranks").addEventListener("focus", stealthRanksFocus, false);
+                    document.getElementById("survival-checkbox").addEventListener("change", survivalCheckbox, false);
+                    document.getElementById("survival-ranks").addEventListener("blur", survivalRanksBlur, false);
+                    document.getElementById("survival-ranks").addEventListener("focus", survivalRanksFocus, false);
+                    document.getElementById("swim-checkbox").addEventListener("change", swimCheckbox, false);
+                    document.getElementById("swim-ranks").addEventListener("blur", swimRanksBlur, false);
+                    document.getElementById("swim-ranks").addEventListener("focus", swimRanksFocus, false);
+                    document.getElementById("useMagicDevice-checkbox").addEventListener("change", useMagicDeviceCheckbox, false);
+                    document.getElementById("useMagicDevice-ranks").addEventListener("blur", useMagicDeviceRanksBlur, false);
+                    document.getElementById("useMagicDevice-ranks").addEventListener("focus", useMagicDeviceRanksFocus, false);
+                    document.getElementById("str-ability-score").addEventListener("blur", strAbilityScoreBlur, false);
+                    document.getElementById("dex-ability-score").addEventListener("blur", dexAbilityScoreBlur, false);
+                    document.getElementById("con-ability-score").addEventListener("blur", conAbilityScoreBlur, false);
+                    document.getElementById("int-ability-score").addEventListener("blur", intAbilityScoreBlur, false);
+                    document.getElementById("wis-ability-score").addEventListener("blur", wisAbilityScoreBlur, false);
+                    document.getElementById("cha-ability-score").addEventListener("blur", chaAbilityScoreBlur, false);
+                    //The below line maybe will not work if Misc Modifier is changed programatically - probably only when the user changes the value
+                    // and the field is set so the user cannot change the value. So if the field is programatically changed, an explicit call to
+                    // initiativeModifierMiscModifierChange must be made to update the Initiative total
+                    document.getElementById("initiative-modifier-misc-modifier").addEventListener("change", initiativeModifierMiscModifierChange, false);
+                    
+                    setAcTotal();
+					setWounds(5);
+					
+             //      setStrengthAbilityScore(1);
+             //      setStrengthAbilityModifer(getDR()+1);
+             //      setStrengthAbilityModifer(getStrengthAbilityScore()+1);
+             //      setStrengthTempAdjustment(getStrengthAbilityModifer()+2);
+             //      setStrengthTempModifier(getStrengthTempAdjustment()+3);
+             //      setBaseSpeed(34);
+                }
+                                
+                function setAcTotal () {
+                    document.getElementById("ac-total").value=10+parseInt(document.getElementById("ac-armor-bonus").value)+
+                    parseInt(document.getElementById("ac-shield-bonus").value)+parseInt(document.getElementById("ac-dex-modifer").value)+
+                    parseInt(document.getElementById("ac-size-modifer").value)+parseInt(document.getElementById("ac-natural-armor").value)+
+                    parseInt(document.getElementById("ac-deflection-modifer").value)+parseInt(document.getElementById("ac-misc-modifer").value);
+                }
+                function abilityModifer (num) {
+                    num=num-10;
+                    if (num >= 0) return Math.floor(num/2);
+                    else return Math.floor(num/2);
+                }
+                function strAbilityScoreBlur () {
+                    var tag = document.getElementById("str-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("str-ability-modifier").value=abilityModifer(value);
+                }
+                function dexAbilityScoreBlur () {
+                    var tag = document.getElementById("dex-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("dex-ability-modifier").value=abilityModifer(value);
+                    document.getElementById("initiative-modifier-dex-modifier").value=abilityModifer(value);
+                    document.getElementById("cmd-dexterity-modifier").value=abilityModifer(value);
+			
+					
+					initiativeModifierDexModifierChange();         // recalc initiative modifier total
+                    setDexSkillsAbilityMod(abilityModifer(value)); //update all DEX Skills Ability-Mod fields
+                    updateSkillsTotals();                          //update all Total Bonus fields under Skills
+                }
+                function initiativeModifierMiscModifierChange () {
+                    document.getElementById("initiative-modifier-total").value=parseInt(document.getElementById("initiative-modifier-dex-modifier").value)+
+                    parseInt(document.getElementById("initiative-modifier-misc-modifier").value);
+                }
+                function initiativeModifierDexModifierChange () {
+                    document.getElementById("initiative-modifier-total").value=parseInt(document.getElementById("initiative-modifier-dex-modifier").value)+
+                    parseInt(document.getElementById("initiative-modifier-misc-modifier").value);
+                }
+                function setDexSkillsAbilityMod (value) { //this updates the ability-mod fields for all DEX skills
+                    document.getElementById("acrobatics-ability-mod").value=value;
+                    document.getElementById("disableDevice-ability-mod").value=value;
+                    document.getElementById("escapeArtist-ability-mod").value=value;
+                    document.getElementById("fly-ability-mod").value=value;
+                    document.getElementById("ride-ability-mod").value=value;
+                    document.getElementById("slightOfHand-ability-mod").value=value;
+                    document.getElementById("stealth-ability-mod").value=value;
+                }
+                function updateSkillsTotals() { //this updates the Total Bonus fields for all Skills
+                    acrobaticsCheckbox ();
+                    appraiseCheckbox ();
+                    bluffCheckbox ();
+                    climbCheckbox ();
+                    craft1Checkbox () ;
+                    craft2Checkbox ();
+                    craft3Checkbox ();
+                    diplomacyCheckbox ();
+                    disableDeviceCheckbox ();
+                    disguiseCheckbox ();
+                    escapeArtistCheckbox ();
+                    flyCheckbox ();
+                    handleAnimalCheckbox ();
+                    healCheckbox ();
+                    intimidateCheckbox ();
+                    knowledgeArcanaCheckbox ();
+                    knowledgeDungeoneeringCheckbox ();
+                    knowledgeEngineeringCheckbox ();
+                    knowledgeGeographyCheckbox ();
+                    knowledgeHistoryCheckbox ();
+                    knowledgeLocalCheckbox ();
+                    knowledgeNatureCheckbox ();
+                    knowledgeNobilityCheckbox ();
+                    knowledgePlanesCheckbox ();
+                    knowledgeReligionCheckbox ();
+                    linguisticsCheckbox ();
+                    perceptionCheckbox ();
+                    perform1Checkbox ();
+                    perform2Checkbox ();
+                    profession1Checkbox ();
+                    profession2Checkbox ();
+                    rideCheckbox ();
+                    senseMotiveCheckbox ();
+                    slightOfHandCheckbox ();
+                    spellcraftCheckbox ();
+                    stealthCheckbox ();
+                    survivalCheckbox ();
+                    swimCheckbox ();
+                    useMagicDeviceCheckbox ();
+                }
+                function conAbilityScoreBlur () {
+                    var tag = document.getElementById("con-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("con-ability-modifier").value=abilityModifer(value);
+                }
+                function intAbilityScoreBlur () {
+                    var tag = document.getElementById("int-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("int-ability-modifier").value=abilityModifer(value);
+                }
+                function wisAbilityScoreBlur () {
+                    var tag = document.getElementById("wis-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("wis-ability-modifier").value=abilityModifer(value);
+                }
+                function chaAbilityScoreBlur () {
+                    var tag = document.getElementById("cha-ability-score");
+                    var value=parseInt(tag.value);
+                    if (isNaN(value)) value=10; //handle when user does not enter a valid number
+                    if (value<0) value=10; else if (value>100) value=100; //to ensure value is not out-of-range
+                    tag.value=value;
+                    document.getElementById("cha-ability-modifier").value=abilityModifer(value);
+                }
+
+                function setTotal (num) {document.getElementById("total").innerHTML=num;}
+                function getTotal () {return parseInt(document.getElementById("total").innerHTML);}
+                function setDR (num) {document.getElementById("DR").innerHTML=num;}
+                function getDR () {return parseInt(document.getElementById("DR").innerHTML);}
+                function setStrengthAbilityScore (num) {document.getElementById("str-ability-score").value=num;}
+                function getStrengthAbilityScore () {return parseInt(document.getElementById("str-ability-score").value);}
+                function setStrengthAbilityModifer (num) {document.getElementById("str-ability-modifier").value=num;}
+                function getStrengthAbilityModifer () {return parseInt(document.getElementById("str-ability-modifier").value);}
+                function setStrengthTempAdjustment (num) {document.getElementById("str-temp-adjustment").value=num;}
+                function getStrengthTempAdjustment () {return parseInt(document.getElementById("str-temp-adjustment").value);}
+                function setStrengthTempModifier (num) {document.getElementById("str-temp-modifier").value=num;}
+                function getStrengthTempModifier () {return parseInt(document.getElementById("str-temp-modifier").value);}
+                function setBaseSpeed (num1) {document.getElementById("base-speed").innerHTML=num1+" ft. "+Math.floor(num1/5)+" sq.";}
+				
+				function setWounds (num1) {document.getElementById("wounds").innerHTML= num1;}
+				
+                function acrobaticsCheckbox () {
+                    var miscMod = document.getElementById("acrobatics-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("acrobatics-ranks").value)!=0) {
+                        if (document.getElementById("acrobatics-checkbox").checked) value+=3;
+                        else {value-=3;
+                          if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("acrobatics-total-bonus").value =
+                    parseInt(document.getElementById("acrobatics-ability-mod").value) + parseInt(document.getElementById("acrobatics-ranks").value) + value;
+                }
+                function acrobaticsRanksFocus () {ranksFocusValue=parseInt(document.getElementById("acrobatics-ranks").value);} //save entering value
+
+                function acrobaticsRanksBlur () {
+                    var ranks = document.getElementById("acrobatics-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                        ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("acrobatics-checkbox").checked)
+                        document.getElementById("acrobatics-misc-mod").value=parseInt(document.getElementById("acrobatics-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("acrobatics-checkbox").checked))
+                        document.getElementById("acrobatics-misc-mod").value=Math.max(parseInt(document.getElementById("acrobatics-misc-mod").value)-3,0);
+                    document.getElementById("acrobatics-total-bonus").value =
+                    parseInt(document.getElementById("acrobatics-ability-mod").value) + value + parseInt(document.getElementById("acrobatics-misc-mod").value);
+                }
+                function appraiseCheckbox () {
+                    var miscMod = document.getElementById("appraise-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("appraise-ranks").value)!=0) {
+                        if (document.getElementById("appraise-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("appraise-total-bonus").value =
+                    parseInt(document.getElementById("appraise-ability-mod").value) + parseInt(document.getElementById("appraise-ranks").value) + value;
+                }
+                function appraiseRanksFocus () {ranksFocusValue=parseInt(document.getElementById("appraise-ranks").value);} //save entering value
+                
+                function appraiseRanksBlur () {
+                    var ranks = document.getElementById("appraise-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("appraise-checkbox").checked)
+                    document.getElementById("appraise-misc-mod").value=parseInt(document.getElementById("appraise-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("appraise-checkbox").checked))
+                    document.getElementById("appraise-misc-mod").value=Math.max(parseInt(document.getElementById("appraise-misc-mod").value)-3,0);
+                    document.getElementById("appraise-total-bonus").value =
+                    parseInt(document.getElementById("appraise-ability-mod").value) + value + parseInt(document.getElementById("appraise-misc-mod").value);
+                }
+                function bluffCheckbox () {
+                    var miscMod = document.getElementById("bluff-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("bluff-ranks").value)!=0) {
+                        if (document.getElementById("bluff-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("bluff-total-bonus").value =
+                    parseInt(document.getElementById("bluff-ability-mod").value) + parseInt(document.getElementById("bluff-ranks").value) + value;
+                }
+                function bluffRanksFocus () {ranksFocusValue=parseInt(document.getElementById("bluff-ranks").value);} //save entering value
+                
+                function bluffRanksBlur () {
+                    var ranks = document.getElementById("bluff-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("bluff-checkbox").checked)
+                    document.getElementById("bluff-misc-mod").value=parseInt(document.getElementById("bluff-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("bluff-checkbox").checked))
+                    document.getElementById("bluff-misc-mod").value=Math.max(parseInt(document.getElementById("bluff-misc-mod").value)-3,0);
+                    document.getElementById("bluff-total-bonus").value =
+                    parseInt(document.getElementById("bluff-ability-mod").value) + value + parseInt(document.getElementById("bluff-misc-mod").value);
+                }
+                function climbCheckbox () {
+                    var miscMod = document.getElementById("climb-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("climb-ranks").value)!=0) {
+                        if (document.getElementById("climb-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("climb-total-bonus").value =
+                    parseInt(document.getElementById("climb-ability-mod").value) + parseInt(document.getElementById("climb-ranks").value) + value;
+                }
+                function climbRanksFocus () {ranksFocusValue=parseInt(document.getElementById("climb-ranks").value);} //save entering value
+                
+                function climbRanksBlur () {
+                    var ranks = document.getElementById("climb-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("climb-checkbox").checked)
+                    document.getElementById("climb-misc-mod").value=parseInt(document.getElementById("climb-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("climb-checkbox").checked))
+                    document.getElementById("climb-misc-mod").value=Math.max(parseInt(document.getElementById("climb-misc-mod").value)-3,0);
+                    document.getElementById("climb-total-bonus").value =
+                    parseInt(document.getElementById("climb-ability-mod").value) + value + parseInt(document.getElementById("climb-misc-mod").value);
+                }
+                function craft1Checkbox () {
+                    var miscMod = document.getElementById("craft1-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("craft1-ranks").value)!=0) {
+                        if (document.getElementById("craft1-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("craft1-total-bonus").value =
+                    parseInt(document.getElementById("craft1-ability-mod").value) + parseInt(document.getElementById("craft1-ranks").value) + value;
+                }
+                function craft1RanksFocus () {ranksFocusValue=parseInt(document.getElementById("craft1-ranks").value);} //save entering value
+                
+                function craft1RanksBlur () {
+                    var ranks = document.getElementById("craft1-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("craft1-checkbox").checked)
+                    document.getElementById("craft1-misc-mod").value=parseInt(document.getElementById("craft1-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("craft1-checkbox").checked))
+                    document.getElementById("craft1-misc-mod").value=Math.max(parseInt(document.getElementById("craft1-misc-mod").value)-3,0);
+                    document.getElementById("craft1-total-bonus").value =
+                    parseInt(document.getElementById("craft1-ability-mod").value) + value + parseInt(document.getElementById("craft1-misc-mod").value);
+                }
+                function craft2Checkbox () {
+                    var miscMod = document.getElementById("craft2-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("craft2-ranks").value)!=0) {
+                        if (document.getElementById("craft2-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("craft2-total-bonus").value =
+                    parseInt(document.getElementById("craft2-ability-mod").value) + parseInt(document.getElementById("craft2-ranks").value) + value;
+                }
+                function craft2RanksFocus () {ranksFocusValue=parseInt(document.getElementById("craft2-ranks").value);} //save entering value
+                
+                function craft2RanksBlur () {
+                    var ranks = document.getElementById("craft2-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("craft2-checkbox").checked)
+                    document.getElementById("craft2-misc-mod").value=parseInt(document.getElementById("craft2-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("craft2-checkbox").checked))
+                    document.getElementById("craft2-misc-mod").value=Math.max(parseInt(document.getElementById("craft2-misc-mod").value)-3,0);
+                    document.getElementById("craft2-total-bonus").value =
+                    parseInt(document.getElementById("craft2-ability-mod").value) + value + parseInt(document.getElementById("craft2-misc-mod").value);
+                }
+                function craft3Checkbox () {
+                    var miscMod = document.getElementById("craft3-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("craft3-ranks").value)!=0) {
+                        if (document.getElementById("craft3-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("craft3-total-bonus").value =
+                    parseInt(document.getElementById("craft3-ability-mod").value) + parseInt(document.getElementById("craft3-ranks").value) + value;
+                }
+                function craft3RanksFocus () {ranksFocusValue=parseInt(document.getElementById("craft3-ranks").value);} //save entering value
+                
+                function craft3RanksBlur () {
+                    var ranks = document.getElementById("craft3-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("craft3-checkbox").checked)
+                    document.getElementById("craft3-misc-mod").value=parseInt(document.getElementById("craft3-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("craft3-checkbox").checked))
+                    document.getElementById("craft3-misc-mod").value=Math.max(parseInt(document.getElementById("craft3-misc-mod").value)-3,0);
+                    document.getElementById("craft3-total-bonus").value =
+                    parseInt(document.getElementById("craft3-ability-mod").value) + value + parseInt(document.getElementById("craft3-misc-mod").value);
+                }
+                function diplomacyCheckbox () {
+                    var miscMod = document.getElementById("diplomacy-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("diplomacy-ranks").value)!=0) {
+                        if (document.getElementById("diplomacy-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("diplomacy-total-bonus").value =
+                    parseInt(document.getElementById("diplomacy-ability-mod").value) + parseInt(document.getElementById("diplomacy-ranks").value) + value;
+                }
+                function diplomacyRanksFocus () {ranksFocusValue=parseInt(document.getElementById("diplomacy-ranks").value);} //save entering value
+                
+                function diplomacyRanksBlur () {
+                    var ranks = document.getElementById("diplomacy-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("diplomacy-checkbox").checked)
+                    document.getElementById("diplomacy-misc-mod").value=parseInt(document.getElementById("diplomacy-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("diplomacy-checkbox").checked))
+                    document.getElementById("diplomacy-misc-mod").value=Math.max(parseInt(document.getElementById("diplomacy-misc-mod").value)-3,0);
+                    document.getElementById("diplomacy-total-bonus").value =
+                    parseInt(document.getElementById("diplomacy-ability-mod").value) + value + parseInt(document.getElementById("diplomacy-misc-mod").value);
+                }
+                function disableDeviceCheckbox () {
+                    var miscMod = document.getElementById("disableDevice-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("disableDevice-ranks").value)!=0) {
+                        if (document.getElementById("disableDevice-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("disableDevice-total-bonus").value =
+                    parseInt(document.getElementById("disableDevice-ability-mod").value) + parseInt(document.getElementById("disableDevice-ranks").value) + value;
+                }
+                function disableDeviceRanksFocus () {ranksFocusValue=parseInt(document.getElementById("disableDevice-ranks").value);} //save entering value
+                
+                function disableDeviceRanksBlur () {
+                    var ranks = document.getElementById("disableDevice-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("disableDevice-checkbox").checked)
+                    document.getElementById("disableDevice-misc-mod").value=parseInt(document.getElementById("disableDevice-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("disableDevice-checkbox").checked))
+                    document.getElementById("disableDevice-misc-mod").value=Math.max(parseInt(document.getElementById("disableDevice-misc-mod").value)-3,0);
+                    document.getElementById("disableDevice-total-bonus").value =
+                    parseInt(document.getElementById("disableDevice-ability-mod").value) + value + parseInt(document.getElementById("disableDevice-misc-mod").value);
+                }
+                function disguiseCheckbox () {
+                    var miscMod = document.getElementById("disguise-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("disguise-ranks").value)!=0) {
+                        if (document.getElementById("disguise-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("disguise-total-bonus").value =
+                    parseInt(document.getElementById("disguise-ability-mod").value) + parseInt(document.getElementById("disguise-ranks").value) + value;
+                }
+                function disguiseRanksFocus () {ranksFocusValue=parseInt(document.getElementById("disguise-ranks").value);} //save entering value
+                
+                function disguiseRanksBlur () {
+                    var ranks = document.getElementById("disguise-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("disguise-checkbox").checked)
+                    document.getElementById("disguise-misc-mod").value=parseInt(document.getElementById("disguise-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("disguise-checkbox").checked))
+                    document.getElementById("disguise-misc-mod").value=Math.max(parseInt(document.getElementById("disguise-misc-mod").value)-3,0);
+                    document.getElementById("disguise-total-bonus").value =
+                    parseInt(document.getElementById("disguise-ability-mod").value) + value + parseInt(document.getElementById("disguise-misc-mod").value);
+                }
+                function escapeArtistCheckbox () {
+                    var miscMod = document.getElementById("escapeArtist-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("escapeArtist-ranks").value)!=0) {
+                        if (document.getElementById("escapeArtist-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("escapeArtist-total-bonus").value =
+                    parseInt(document.getElementById("escapeArtist-ability-mod").value) + parseInt(document.getElementById("escapeArtist-ranks").value) + value;
+                }
+                function escapeArtistRanksFocus () {ranksFocusValue=parseInt(document.getElementById("escapeArtist-ranks").value);} //save entering value
+                
+                function escapeArtistRanksBlur () {
+                    var ranks = document.getElementById("escapeArtist-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("escapeArtist-checkbox").checked)
+                    document.getElementById("escapeArtist-misc-mod").value=parseInt(document.getElementById("escapeArtist-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("escapeArtist-checkbox").checked))
+                    document.getElementById("escapeArtist-misc-mod").value=Math.max(parseInt(document.getElementById("escapeArtist-misc-mod").value)-3,0);
+                    document.getElementById("escapeArtist-total-bonus").value =
+                    parseInt(document.getElementById("escapeArtist-ability-mod").value) + value + parseInt(document.getElementById("escapeArtist-misc-mod").value);
+                }
+                function flyCheckbox () {
+                    var miscMod = document.getElementById("fly-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("fly-ranks").value)!=0) {
+                        if (document.getElementById("fly-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("fly-total-bonus").value =
+                    parseInt(document.getElementById("fly-ability-mod").value) + parseInt(document.getElementById("fly-ranks").value) + value;
+                }
+                function flyRanksFocus () {ranksFocusValue=parseInt(document.getElementById("fly-ranks").value);} //save entering value
+                
+                function flyRanksBlur () {
+                    var ranks = document.getElementById("fly-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                        ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("fly-checkbox").checked)
+                        document.getElementById("fly-misc-mod").value=parseInt(document.getElementById("fly-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("fly-checkbox").checked))
+                        document.getElementById("fly-misc-mod").value=Math.max(parseInt(document.getElementById("fly-misc-mod").value)-3,0);
+                    document.getElementById("fly-total-bonus").value =
+                    parseInt(document.getElementById("fly-ability-mod").value) + value + parseInt(document.getElementById("fly-misc-mod").value);
+                }
+                function handleAnimalCheckbox () {
+                    var miscMod = document.getElementById("handleAnimal-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("handleAnimal-ranks").value)!=0) {
+                        if (document.getElementById("handleAnimal-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("handleAnimal-total-bonus").value =
+                    parseInt(document.getElementById("handleAnimal-ability-mod").value) + parseInt(document.getElementById("handleAnimal-ranks").value) + value;
+                }
+                function handleAnimalRanksFocus () {ranksFocusValue=parseInt(document.getElementById("handleAnimal-ranks").value);} //save entering value
+                
+                function handleAnimalRanksBlur () {
+                    var ranks = document.getElementById("handleAnimal-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("handleAnimal-checkbox").checked)
+                    document.getElementById("handleAnimal-misc-mod").value=parseInt(document.getElementById("handleAnimal-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("handleAnimal-checkbox").checked))
+                    document.getElementById("handleAnimal-misc-mod").value=Math.max(parseInt(document.getElementById("handleAnimal-misc-mod").value)-3,0);
+                    document.getElementById("handleAnimal-total-bonus").value =
+                    parseInt(document.getElementById("handleAnimal-ability-mod").value) + value + parseInt(document.getElementById("handleAnimal-misc-mod").value);
+                }
+                function healCheckbox () {
+                    var miscMod = document.getElementById("heal-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("heal-ranks").value)!=0) {
+                        if (document.getElementById("heal-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("heal-total-bonus").value =
+                    parseInt(document.getElementById("heal-ability-mod").value) + parseInt(document.getElementById("heal-ranks").value) + value;
+                }
+                function healRanksFocus () {ranksFocusValue=parseInt(document.getElementById("heal-ranks").value);} //save entering value
+                
+                function healRanksBlur () {
+                    var ranks = document.getElementById("heal-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("heal-checkbox").checked)
+                    document.getElementById("heal-misc-mod").value=parseInt(document.getElementById("heal-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("heal-checkbox").checked))
+                    document.getElementById("heal-misc-mod").value=Math.max(parseInt(document.getElementById("heal-misc-mod").value)-3,0);
+                    document.getElementById("heal-total-bonus").value =
+                    parseInt(document.getElementById("heal-ability-mod").value) + value + parseInt(document.getElementById("heal-misc-mod").value);
+                }
+                function intimidateCheckbox () {
+                    var miscMod = document.getElementById("intimidate-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("intimidate-ranks").value)!=0) {
+                        if (document.getElementById("intimidate-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("intimidate-total-bonus").value =
+                    parseInt(document.getElementById("intimidate-ability-mod").value) + parseInt(document.getElementById("intimidate-ranks").value) + value;
+                }
+                function intimidateRanksFocus () {ranksFocusValue=parseInt(document.getElementById("intimidate-ranks").value);} //save entering value
+                
+                function intimidateRanksBlur () {
+                    var ranks = document.getElementById("intimidate-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("intimidate-checkbox").checked)
+                    document.getElementById("intimidate-misc-mod").value=parseInt(document.getElementById("intimidate-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("intimidate-checkbox").checked))
+                    document.getElementById("intimidate-misc-mod").value=Math.max(parseInt(document.getElementById("intimidate-misc-mod").value)-3,0);
+                    document.getElementById("intimidate-total-bonus").value =
+                    parseInt(document.getElementById("intimidate-ability-mod").value) + value + parseInt(document.getElementById("intimidate-misc-mod").value);
+                }
+                function knowledgeArcanaCheckbox () {
+                    var miscMod = document.getElementById("knowledgeDungeoneering-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeArcana-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeArcana-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeArcana-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeArcana-ability-mod").value) + parseInt(document.getElementById("knowledgeArcana-ranks").value) + value;
+                }
+                function knowledgeArcanaRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeArcana-ranks").value);} //save entering value
+                
+                function knowledgeArcanaRanksBlur () {
+                    var ranks = document.getElementById("knowledgeArcana-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeArcana-checkbox").checked)
+                    document.getElementById("knowledgeArcana-misc-mod").value=parseInt(document.getElementById("knowledgeArcana-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeArcana-checkbox").checked))
+                    document.getElementById("knowledgeArcana-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeArcana-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeArcana-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeArcana-ability-mod").value) + value + parseInt(document.getElementById("knowledgeArcana-misc-mod").value);
+                }
+                function knowledgeDungeoneeringCheckbox () {
+                    var miscMod = document.getElementById("knowledgeDungeoneering-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeDungeoneering-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeDungeoneering-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeDungeoneering-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeDungeoneering-ability-mod").value) + parseInt(document.getElementById("knowledgeDungeoneering-ranks").value) + value;
+                }
+                function knowledgeDungeoneeringRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeDungeoneering-ranks").value);} //save entering value
+                
+                function knowledgeDungeoneeringRanksBlur () {
+                    var ranks = document.getElementById("knowledgeDungeoneering-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeDungeoneering-checkbox").checked)
+                    document.getElementById("knowledgeDungeoneering-misc-mod").value=parseInt(document.getElementById("knowledgeDungeoneering-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeDungeoneering-checkbox").checked))
+                    document.getElementById("knowledgeDungeoneering-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeDungeoneering-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeDungeoneering-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeDungeoneering-ability-mod").value) + value + parseInt(document.getElementById("knowledgeDungeoneering-misc-mod").value);
+                }
+                function knowledgeEngineeringCheckbox () {
+                    var miscMod = document.getElementById("knowledgeGeography-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeEngineering-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeEngineering-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeEngineering-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeEngineering-ability-mod").value) + parseInt(document.getElementById("knowledgeEngineering-ranks").value) + value;
+                }
+                function knowledgeEngineeringRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeEngineering-ranks").value);} //save entering value
+                
+                function knowledgeEngineeringRanksBlur () {
+                    var ranks = document.getElementById("knowledgeEngineering-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeEngineering-checkbox").checked)
+                    document.getElementById("knowledgeEngineering-misc-mod").value=parseInt(document.getElementById("knowledgeEngineering-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeEngineering-checkbox").checked))
+                    document.getElementById("knowledgeEngineering-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeEngineering-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeEngineering-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeEngineering-ability-mod").value) + value + parseInt(document.getElementById("knowledgeEngineering-misc-mod").value);
+                }
+                function knowledgeGeographyCheckbox () {
+                    var miscMod = document.getElementById("knowledgeGeography-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeGeography-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeGeography-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeGeography-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeGeography-ability-mod").value) + parseInt(document.getElementById("knowledgeGeography-ranks").value) + value;
+                }
+                function knowledgeGeographyRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeGeography-ranks").value);} //save entering value
+                
+                function knowledgeGeographyRanksBlur () {
+                    var ranks = document.getElementById("knowledgeGeography-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeGeography-checkbox").checked)
+                    document.getElementById("knowledgeGeography-misc-mod").value=parseInt(document.getElementById("knowledgeGeography-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeGeography-checkbox").checked))
+                    document.getElementById("knowledgeGeography-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeGeography-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeGeography-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeGeography-ability-mod").value) + value + parseInt(document.getElementById("knowledgeGeography-misc-mod").value);
+                }
+                function knowledgeHistoryCheckbox () {
+                    var miscMod = document.getElementById("knowledgeHistory-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeHistory-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeHistory-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeHistory-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeHistory-ability-mod").value) + parseInt(document.getElementById("knowledgeHistory-ranks").value) + value;
+                }
+                function knowledgeHistoryRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeHistory-ranks").value);} //save entering value
+                
+                function knowledgeHistoryRanksBlur () {
+                    var ranks = document.getElementById("knowledgeHistory-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeHistory-checkbox").checked)
+                    document.getElementById("knowledgeHistory-misc-mod").value=parseInt(document.getElementById("knowledgeHistory-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeHistory-checkbox").checked))
+                    document.getElementById("knowledgeHistory-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeHistory-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeHistory-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeHistory-ability-mod").value) + value + parseInt(document.getElementById("knowledgeHistory-misc-mod").value);
+                }
+                function knowledgeLocalCheckbox () {
+                    var miscMod = document.getElementById("knowledgeLocal-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeLocal-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeLocal-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeLocal-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeLocal-ability-mod").value) + parseInt(document.getElementById("knowledgeLocal-ranks").value) + value;
+                }
+                function knowledgeLocalRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeLocal-ranks").value);} //save entering value
+                
+                function knowledgeLocalRanksBlur () {
+                    var ranks = document.getElementById("knowledgeLocal-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeLocal-checkbox").checked)
+                    document.getElementById("knowledgeLocal-misc-mod").value=parseInt(document.getElementById("knowledgeLocal-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeLocal-checkbox").checked))
+                    document.getElementById("knowledgeLocal-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeLocal-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeLocal-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeLocal-ability-mod").value) + value + parseInt(document.getElementById("knowledgeLocal-misc-mod").value);
+                }
+                function knowledgeNatureCheckbox () {
+                    var miscMod = document.getElementById("knowledgePlanes-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeNature-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeNature-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeNature-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeNature-ability-mod").value) + parseInt(document.getElementById("knowledgeNature-ranks").value) + value;
+                }
+                function knowledgeNatureRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeNature-ranks").value);} //save entering value
+                
+                function knowledgeNatureRanksBlur () {
+                    var ranks = document.getElementById("knowledgeNature-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeNature-checkbox").checked)
+                    document.getElementById("knowledgeNature-misc-mod").value=parseInt(document.getElementById("knowledgeNature-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeNature-checkbox").checked))
+                    document.getElementById("knowledgeNature-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeNature-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeNature-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeNature-ability-mod").value) + value + parseInt(document.getElementById("knowledgeNature-misc-mod").value);
+                }
+                function knowledgeNobilityCheckbox () {
+                    var miscMod = document.getElementById("knowledgeNobility-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeNobility-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeNobility-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeNobility-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeNobility-ability-mod").value) + parseInt(document.getElementById("knowledgeNobility-ranks").value) + value;
+                }
+                function knowledgeNobilityRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeNobility-ranks").value);} //save entering value
+                
+                function knowledgeNobilityRanksBlur () {
+                    var ranks = document.getElementById("knowledgeNobility-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeNobility-checkbox").checked)
+                    document.getElementById("knowledgeNobility-misc-mod").value=parseInt(document.getElementById("knowledgeNobility-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeNobility-checkbox").checked))
+                    document.getElementById("knowledgeNobility-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeNobility-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeNobility-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeNobility-ability-mod").value) + value + parseInt(document.getElementById("knowledgeNobility-misc-mod").value);
+                }
+                function knowledgePlanesCheckbox () {
+                    var miscMod = document.getElementById("knowledgePlanes-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgePlanes-ranks").value)!=0) {
+                        if (document.getElementById("knowledgePlanes-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgePlanes-total-bonus").value =
+                    parseInt(document.getElementById("knowledgePlanes-ability-mod").value) + parseInt(document.getElementById("knowledgePlanes-ranks").value) + value;
+                }
+                function knowledgePlanesRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgePlanes-ranks").value);} //save entering value
+                
+                function knowledgePlanesRanksBlur () {
+                    var ranks = document.getElementById("knowledgePlanes-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgePlanes-checkbox").checked)
+                    document.getElementById("knowledgePlanes-misc-mod").value=parseInt(document.getElementById("knowledgePlanes-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgePlanes-checkbox").checked))
+                    document.getElementById("knowledgePlanes-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgePlanes-misc-mod").value)-3,0);
+                    document.getElementById("knowledgePlanes-total-bonus").value =
+                    parseInt(document.getElementById("knowledgePlanes-ability-mod").value) + value + parseInt(document.getElementById("knowledgePlanes-misc-mod").value);
+                }
+                function knowledgeReligionCheckbox () {
+                    var miscMod = document.getElementById("knowledgeReligion-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("knowledgeReligion-ranks").value)!=0) {
+                        if (document.getElementById("knowledgeReligion-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("knowledgeReligion-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeReligion-ability-mod").value) + parseInt(document.getElementById("knowledgeReligion-ranks").value) + value;
+                }
+                function knowledgeReligionRanksFocus () {ranksFocusValue=parseInt(document.getElementById("knowledgeReligion-ranks").value);} //save entering value
+                
+                function knowledgeReligionRanksBlur () {
+                    var ranks = document.getElementById("knowledgeReligion-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("knowledgeReligion-checkbox").checked)
+                    document.getElementById("knowledgeReligion-misc-mod").value=parseInt(document.getElementById("knowledgeReligion-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("knowledgeReligion-checkbox").checked))
+                    document.getElementById("knowledgeReligion-misc-mod").value=Math.max(parseInt(document.getElementById("knowledgeReligion-misc-mod").value)-3,0);
+                    document.getElementById("knowledgeReligion-total-bonus").value =
+                    parseInt(document.getElementById("knowledgeReligion-ability-mod").value) + value + parseInt(document.getElementById("knowledgeReligion-misc-mod").value);
+                }
+                function linguisticsCheckbox () {
+                    var miscMod = document.getElementById("linguistics-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("linguistics-ranks").value)!=0) {
+                        if (document.getElementById("linguistics-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("linguistics-total-bonus").value =
+                    parseInt(document.getElementById("linguistics-ability-mod").value) + parseInt(document.getElementById("linguistics-ranks").value) + value;
+                }
+                function linguisticsRanksFocus () {ranksFocusValue=parseInt(document.getElementById("linguistics-ranks").value);} //save entering value
+                
+                function linguisticsRanksBlur () {
+                    var ranks = document.getElementById("linguistics-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("linguistics-checkbox").checked)
+                    document.getElementById("linguistics-misc-mod").value=parseInt(document.getElementById("linguistics-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("linguistics-checkbox").checked))
+                    document.getElementById("linguistics-misc-mod").value=Math.max(parseInt(document.getElementById("linguistics-misc-mod").value)-3,0);
+                    document.getElementById("linguistics-total-bonus").value =
+                    parseInt(document.getElementById("linguistics-ability-mod").value) + value + parseInt(document.getElementById("linguistics-misc-mod").value);
+                }
+                function perceptionCheckbox () {
+                    var miscMod = document.getElementById("perception-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("perception-ranks").value)!=0) {
+                        if (document.getElementById("perception-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("perception-total-bonus").value =
+                    parseInt(document.getElementById("perception-ability-mod").value) + parseInt(document.getElementById("perception-ranks").value) + value;
+                }
+                function perceptionRanksFocus () {ranksFocusValue=parseInt(document.getElementById("perception-ranks").value);} //save entering value
+                
+                function perceptionRanksBlur () {
+                    var ranks = document.getElementById("perception-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("perception-checkbox").checked)
+                    document.getElementById("perception-misc-mod").value=parseInt(document.getElementById("perception-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("perception-checkbox").checked))
+                    document.getElementById("perception-misc-mod").value=Math.max(parseInt(document.getElementById("perception-misc-mod").value)-3,0);
+                    document.getElementById("perception-total-bonus").value =
+                    parseInt(document.getElementById("perception-ability-mod").value) + value + parseInt(document.getElementById("perception-misc-mod").value);
+                }
+                function perform1Checkbox () {
+                    var miscMod = document.getElementById("perform1-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("perform1-ranks").value)!=0) {
+                        if (document.getElementById("perform1-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("perform1-total-bonus").value =
+                    parseInt(document.getElementById("perform1-ability-mod").value) + parseInt(document.getElementById("perform1-ranks").value) + value;
+                }
+                function perform1RanksFocus () {ranksFocusValue=parseInt(document.getElementById("perform1-ranks").value);} //save entering value
+                
+                function perform1RanksBlur () {
+                    var ranks = document.getElementById("perform1-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("perform1-checkbox").checked)
+                    document.getElementById("perform1-misc-mod").value=parseInt(document.getElementById("perform1-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("perform1-checkbox").checked))
+                    document.getElementById("perform1-misc-mod").value=Math.max(parseInt(document.getElementById("perform1-misc-mod").value)-3,0);
+                    document.getElementById("perform1-total-bonus").value =
+                    parseInt(document.getElementById("perform1-ability-mod").value) + value + parseInt(document.getElementById("perform1-misc-mod").value);
+                }
+
+                function perform2Checkbox () {
+                    var miscMod = document.getElementById("perform2-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("perform2-ranks").value)!=0) {
+                        if (document.getElementById("perform2-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("perform2-total-bonus").value =
+                    parseInt(document.getElementById("perform2-ability-mod").value) + parseInt(document.getElementById("perform2-ranks").value) + value;
+                }
+                function perform2RanksFocus () {ranksFocusValue=parseInt(document.getElementById("perform2-ranks").value);} //save entering value
+                
+                function perform2RanksBlur () {
+                    var ranks = document.getElementById("perform2-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("perform2-checkbox").checked)
+                    document.getElementById("perform2-misc-mod").value=parseInt(document.getElementById("perform2-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("perform2-checkbox").checked))
+                    document.getElementById("perform2-misc-mod").value=Math.max(parseInt(document.getElementById("perform2-misc-mod").value)-3,0);
+                    document.getElementById("perform2-total-bonus").value =
+                    parseInt(document.getElementById("perform2-ability-mod").value) + value + parseInt(document.getElementById("perform2-misc-mod").value);
+                }
+                function profession1Checkbox () {
+                    var miscMod = document.getElementById("profession1-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("profession1-ranks").value)!=0) {
+                        if (document.getElementById("profession1-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("profession1-total-bonus").value =
+                    parseInt(document.getElementById("profession1-ability-mod").value) + parseInt(document.getElementById("profession1-ranks").value) + value;
+                }
+                function profession1RanksFocus () {ranksFocusValue=parseInt(document.getElementById("profession1-ranks").value);} //save entering value
+                
+                function profession1RanksBlur () {
+                    var ranks = document.getElementById("profession1-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("profession1-checkbox").checked)
+                    document.getElementById("profession1-misc-mod").value=parseInt(document.getElementById("profession1-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("profession1-checkbox").checked))
+                    document.getElementById("profession1-misc-mod").value=Math.max(parseInt(document.getElementById("profession1-misc-mod").value)-3,0);
+                    document.getElementById("profession1-total-bonus").value =
+                    parseInt(document.getElementById("profession1-ability-mod").value) + value + parseInt(document.getElementById("profession1-misc-mod").value);
+                }
+                
+                function profession2Checkbox () {
+                    var miscMod = document.getElementById("profession2-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("profession2-ranks").value)!=0) {
+                        if (document.getElementById("profession2-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("profession2-total-bonus").value =
+                    parseInt(document.getElementById("profession2-ability-mod").value) + parseInt(document.getElementById("profession2-ranks").value) + value;
+                }
+                function profession2RanksFocus () {ranksFocusValue=parseInt(document.getElementById("profession2-ranks").value);} //save entering value
+                
+                function profession2RanksBlur () {
+                    var ranks = document.getElementById("profession2-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("profession2-checkbox").checked)
+                    document.getElementById("profession2-misc-mod").value=parseInt(document.getElementById("profession2-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("profession2-checkbox").checked))
+                    document.getElementById("profession2-misc-mod").value=Math.max(parseInt(document.getElementById("profession2-misc-mod").value)-3,0);
+                    document.getElementById("profession2-total-bonus").value =
+                    parseInt(document.getElementById("profession2-ability-mod").value) + value + parseInt(document.getElementById("profession2-misc-mod").value);
+                }
+                function rideCheckbox () {
+                    var miscMod = document.getElementById("ride-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("ride-ranks").value)!=0) {
+                        if (document.getElementById("ride-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("ride-total-bonus").value =
+                    parseInt(document.getElementById("ride-ability-mod").value) + parseInt(document.getElementById("ride-ranks").value) + value;
+                }
+                function rideRanksFocus () {ranksFocusValue=parseInt(document.getElementById("ride-ranks").value);} //save entering value
+                
+                function rideRanksBlur () {
+                    var ranks = document.getElementById("ride-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("ride-checkbox").checked)
+                    document.getElementById("ride-misc-mod").value=parseInt(document.getElementById("ride-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("ride-checkbox").checked))
+                    document.getElementById("ride-misc-mod").value=Math.max(parseInt(document.getElementById("ride-misc-mod").value)-3,0);
+                    document.getElementById("ride-total-bonus").value =
+                    parseInt(document.getElementById("ride-ability-mod").value) + value + parseInt(document.getElementById("ride-misc-mod").value);
+                }
+                function senseMotiveCheckbox () {
+                    var miscMod = document.getElementById("spellcraft-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("senseMotive-ranks").value)!=0) {
+                        if (document.getElementById("senseMotive-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("senseMotive-total-bonus").value =
+                    parseInt(document.getElementById("senseMotive-ability-mod").value) + parseInt(document.getElementById("senseMotive-ranks").value) + value;
+                }
+                function senseMotiveRanksFocus () {ranksFocusValue=parseInt(document.getElementById("senseMotive-ranks").value);} //save entering value
+                
+                function senseMotiveRanksBlur () {
+                    var ranks = document.getElementById("senseMotive-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("senseMotive-checkbox").checked)
+                    document.getElementById("senseMotive-misc-mod").value=parseInt(document.getElementById("senseMotive-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("senseMotive-checkbox").checked))
+                    document.getElementById("senseMotive-misc-mod").value=Math.max(parseInt(document.getElementById("senseMotive-misc-mod").value)-3,0);
+                    document.getElementById("senseMotive-total-bonus").value =
+                    parseInt(document.getElementById("senseMotive-ability-mod").value) + value + parseInt(document.getElementById("senseMotive-misc-mod").value);
+                }
+                function slightOfHandCheckbox () {
+                    var miscMod = document.getElementById("slightOfHand-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("slightOfHand-ranks").value)!=0) {
+                        if (document.getElementById("slightOfHand-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("slightOfHand-total-bonus").value =
+                    parseInt(document.getElementById("slightOfHand-ability-mod").value) + parseInt(document.getElementById("slightOfHand-ranks").value) + value;
+                }
+                function slightOfHandRanksFocus () {ranksFocusValue=parseInt(document.getElementById("slightOfHand-ranks").value);} //save entering value
+                
+                function slightOfHandRanksBlur () {
+                    var ranks = document.getElementById("slightOfHand-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("slightOfHand-checkbox").checked)
+                    document.getElementById("slightOfHand-misc-mod").value=parseInt(document.getElementById("slightOfHand-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("slightOfHand-checkbox").checked))
+                    document.getElementById("slightOfHand-misc-mod").value=Math.max(parseInt(document.getElementById("slightOfHand-misc-mod").value)-3,0);
+                    document.getElementById("slightOfHand-total-bonus").value =
+                    parseInt(document.getElementById("slightOfHand-ability-mod").value) + value + parseInt(document.getElementById("slightOfHand-misc-mod").value);
+                }
+                function spellcraftCheckbox () {
+                    var miscMod = document.getElementById("spellcraft-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("spellcraft-ranks").value)!=0) {
+                        if (document.getElementById("spellcraft-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("spellcraft-total-bonus").value =
+                    parseInt(document.getElementById("spellcraft-ability-mod").value) + parseInt(document.getElementById("spellcraft-ranks").value) + value;
+                }
+                function spellcraftRanksFocus () {ranksFocusValue=parseInt(document.getElementById("spellcraft-ranks").value);} //save entering value
+                
+                function spellcraftRanksBlur () {
+                    var ranks = document.getElementById("spellcraft-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("spellcraft-checkbox").checked)
+                    document.getElementById("spellcraft-misc-mod").value=parseInt(document.getElementById("spellcraft-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("spellcraft-checkbox").checked))
+                    document.getElementById("spellcraft-misc-mod").value=Math.max(parseInt(document.getElementById("spellcraft-misc-mod").value)-3,0);
+                    document.getElementById("spellcraft-total-bonus").value =
+                    parseInt(document.getElementById("spellcraft-ability-mod").value) + value + parseInt(document.getElementById("spellcraft-misc-mod").value);
+                }
+                
+                
+                function stealthCheckbox () {
+                    var miscMod = document.getElementById("stealth-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("stealth-ranks").value)!=0) {
+                        if (document.getElementById("stealth-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("stealth-total-bonus").value =
+                    parseInt(document.getElementById("stealth-ability-mod").value) + parseInt(document.getElementById("stealth-ranks").value) + value;
+                }
+                function stealthRanksFocus () {ranksFocusValue=parseInt(document.getElementById("stealth-ranks").value);} //save entering value
+                
+                function stealthRanksBlur () {
+                    var ranks = document.getElementById("stealth-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("stealth-checkbox").checked)
+                    document.getElementById("stealth-misc-mod").value=parseInt(document.getElementById("stealth-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("stealth-checkbox").checked))
+                    document.getElementById("stealth-misc-mod").value=Math.max(parseInt(document.getElementById("stealth-misc-mod").value)-3,0);
+                    document.getElementById("stealth-total-bonus").value =
+                    parseInt(document.getElementById("stealth-ability-mod").value) + value + parseInt(document.getElementById("stealth-misc-mod").value);
+                }
+                function survivalCheckbox () {
+                    var miscMod = document.getElementById("survival-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("survival-ranks").value)!=0) {
+                        if (document.getElementById("survival-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("survival-total-bonus").value =
+                    parseInt(document.getElementById("survival-ability-mod").value) + parseInt(document.getElementById("survival-ranks").value) + value;
+                }
+                function survivalRanksFocus () {ranksFocusValue=parseInt(document.getElementById("survival-ranks").value);} //save entering value
+                
+                function survivalRanksBlur () {
+                    var ranks = document.getElementById("survival-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("survival-checkbox").checked)
+                    document.getElementById("survival-misc-mod").value=parseInt(document.getElementById("survival-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("survival-checkbox").checked))
+                    document.getElementById("survival-misc-mod").value=Math.max(parseInt(document.getElementById("survival-misc-mod").value)-3,0);
+                    document.getElementById("survival-total-bonus").value =
+                    parseInt(document.getElementById("survival-ability-mod").value) + value + parseInt(document.getElementById("survival-misc-mod").value);
+                }
+                function swimCheckbox () {
+                    var miscMod = document.getElementById("swim-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("swim-ranks").value)!=0) {
+                        if (document.getElementById("swim-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("swim-total-bonus").value =
+                    parseInt(document.getElementById("swim-ability-mod").value) + parseInt(document.getElementById("swim-ranks").value) + value;
+                }
+                function swimRanksFocus () {ranksFocusValue=parseInt(document.getElementById("swim-ranks").value);} //save entering value
+                
+                function swimRanksBlur () {
+                    var ranks = document.getElementById("swim-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("swim-checkbox").checked)
+                    document.getElementById("swim-misc-mod").value=parseInt(document.getElementById("swim-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("swim-checkbox").checked))
+                    document.getElementById("swim-misc-mod").value=Math.max(parseInt(document.getElementById("swim-misc-mod").value)-3,0);
+                    document.getElementById("swim-total-bonus").value =
+                    parseInt(document.getElementById("swim-ability-mod").value) + value + parseInt(document.getElementById("swim-misc-mod").value);
+                }
+                function useMagicDeviceCheckbox () {
+                    var miscMod = document.getElementById("useMagicDevice-misc-mod");
+                    var value=parseInt(miscMod.value);
+                    if (parseInt(document.getElementById("useMagicDevice-ranks").value)!=0) {
+                        if (document.getElementById("useMagicDevice-checkbox").checked) value+=3;
+                        else {value-=3;
+                            if (value<0) value=0;} //should never happen
+                    }
+                    miscMod.value=value;
+                    document.getElementById("useMagicDevice-total-bonus").value =
+                    parseInt(document.getElementById("useMagicDevice-ability-mod").value) + parseInt(document.getElementById("useMagicDevice-ranks").value) + value;
+                }
+                function useMagicDeviceRanksFocus () {ranksFocusValue=parseInt(document.getElementById("useMagicDevice-ranks").value);} //save entering value
+                
+                function useMagicDeviceRanksBlur () {
+                    var ranks = document.getElementById("useMagicDevice-ranks");
+                    var value=parseInt(ranks.value);
+                    if (isNaN(value)) value=0; //handle when user does not enter a valid number
+                    if (value<0) value=0; else if (value>100) value=100; //to ensure value is not out-of-range
+                    ranks.value=value;
+                    if ((value>0) && (ranksFocusValue==0) && document.getElementById("useMagicDevice-checkbox").checked)
+                    document.getElementById("useMagicDevice-misc-mod").value=parseInt(document.getElementById("useMagicDevice-misc-mod").value)+3;
+                    else if ((value==0) && (ranksFocusValue>0) && (document.getElementById("useMagicDevice-checkbox").checked))
+                    document.getElementById("useMagicDevice-misc-mod").value=Math.max(parseInt(document.getElementById("useMagicDevice-misc-mod").value)-3,0);
+                    document.getElementById("useMagicDevice-total-bonus").value =
+                    parseInt(document.getElementById("useMagicDevice-ability-mod").value) + value + parseInt(document.getElementById("useMagicDevice-misc-mod").value);
+                }
+
+
+
+            </script>
+    </head>
+<body>
+    <table>
+        <tr>
+            <td rowspan="3">
+                <img src="notAvailableayet.png" alt="Pathfinder image" width=180 height=70 >&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="small-text">Character Name:<input type="text" size=27> &nbsp;&nbsp;Alignment:<input type="text" size=4> &nbsp;&nbsp;Player:<input type="text" size=27></td>
+        </tr>
+        <tr>
+            <td class="small-text">Character Level:<input type="text" size=27> &nbsp;&nbsp;Deity:<input type="text" size=4> &nbsp;&nbsp;Homeland:<input type="text" size=28></td>
+        </tr>
+        <tr>
+            <td class="small-text">Race:<input type="text" size=11> &nbsp;Size:<input type="text" size=3> &nbsp;Gender:<input type="text" size=1> &nbsp;&nbsp;Age:<input type="text" size=2> &nbsp;Height:<input type="text" size=3> &nbsp;Weight:<input type="text" size=3> &nbsp;Hair:<input type="text" size=4> &nbsp;Eyes:<input type="text" size=4></td>
+        </tr>
+    </table> 
+    <table id="table1" width="1000" border="0px" >
+		<tr>
+            <td  valign="top"> <!-- left cell -->
+                <table id="table1-left" border="0px" width="490"> <!-- table for left column -->
+                    <tr> <!-- start of 1st row in left table --> <td class="small-text-cell">Ability Name</td>
+                        <td class="small-text-cell">Ability<br>Score</td>
+                        <td class="small-text-cell">Ability<br>Modifier</td>
+                        <td class="small-text-cell">Temp<br>Adjustment</td>
+                        <td class="small-text-cell">Temp<br>Modifer</td>
+                        <td class="big-text" style= "width:4em;">HP<br><span class="small-text-cell">Hit Points</span></td>
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Total</span>
+                            <div id="total" style="text-align:center;"></div></td>
+                        <td class="thin-border" style="margin-left:5px;"> <span class="small-text-cell" style="vertical-align:top;">DR</span>
+                            <div id="DR" style="text-align:center;"></div></td>
+                    </tr> <!-- end of 1st row in left table -->
+                    <tr> <!-- start of 2nd row in left table -->
+                        <td class="big-text">STR<br><span class="small-text-cell">Strength</span></td>
+                        <td><input id="str-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="str-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="str-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="str-temp-modifier" type="text" size="1" value="0" disabled></td>
+                        <td colspan="3" rowspan="2" class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Wounds/Current HP</span>
+                            <div id="wounds" style="text-align:center;" >2<br>3</div></td>
+                    </tr> <!-- end of 2nd row in left table -->
+                    <tr> <!-- start of 3rd row in left table -->
+                        <td class="big-text">DEX<br><span class="small-text-cell">Dexterity</span></td>
+                        <td><input id="dex-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="dex-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="dex-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="dex-temp-modifier" type="text" size="1" value="0" disabled></td>
+                    </tr> <!-- end of 3rd row in left table -->
+					<tr> <!-- start of 4th row in left table -->
+                        <td class="big-text">CON<br><span class="small-text-cell">Constitution</span></td>
+                        <td><input id="con-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="con-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="con-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="con-temp-modifier" type="text" size="1" value="0" disabled></td>
+						<td colspan="3" rowspan="2" class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Nonlethal Damage</span>
+                            <div id="DR" style="text-align:center;" >2<br>3</div></td>
+                    </tr> <!-- end of 4th row in left table -->
+					<tr> <!-- start of 5th row in left table -->
+                        <td class="big-text">INT<br><span class="small-text-cell">Intelligence</span></td>
+                        <td><input id="int-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="int-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="int-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="int-temp-modifier" type="text" size="1" value="0" disabled></td>
+                    </tr> <!-- end of 5th row in left table -->
+					<tr> <!-- start of 6th row in left table -->
+                        <td class="big-text">WIS<br><span class="small-text-cell">Wisdom</span></td>
+                        <td><input id="wis-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="wis-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="wis-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="wis-temp-modifier" type="text" size="1" value="0" disabled></td>
+						<td rowspan="2" colspan="3" style="width:420px">
+						    <table cellspacing="0">
+						      <tr class="small-text">
+							     <td class="less-big-text">INITIATIVE<br><span class="small-text-cell">Modifier</span></td> 
+							     <td align="center"><input id="initiative-modifier-total" type="text" size="1" disabled value="0">=<br><span class="small-text-cell">Total<br>&nbsp;</span></td>
+							     <td align="center"><input id="initiative-modifier-dex-modifier" type="text" size="1" disabled value="0">+<br><span class="small-text-cell">DEX<br>Modifier</span></td>
+							     <td align="center"><input id="initiative-modifier-misc-modifier" type="text" size="1" disabled value="0"><span class="small-text-cell"><br>Misc<br>Modifier</span></td>
+							  </tr>
+							</table> 
+						</td>
+                    </tr> <!-- end of 6th row in left table -->
+					<tr> <!-- start of 7th row in left table -->
+                        <td class="big-text">CHA<br><span class="small-text-cell">Charisma</span></td>
+                        <td><input id="cha-ability-score" type="number" size="1" min="0" max="100" value="10"></td>
+                        <td><input id="cha-ability-modifier" type="text" size="1" value="0" disabled></td>
+                        <td><input id="cha-temp-adjustment" type="text" size="1" value="0" disabled></td>
+                        <td><input id="cha-temp-modifier" type="text" size="1" value="0" disabled></td>
+                    </tr> <!-- end of 7th row in left table -->
+					<tr ><!-- start of 8th row in left table -->
+					   <td class="big-text">AC<br><span class="small-text-cell">Armor Class</span></td> 
+					   <td colspan="7">
+					      <table cellspacing="0">
+							<tr class="small-text">
+								<td><input id="ac-total" type="text" size="1" disabled>=10+<br><span class="small-text-cell">Total<br>&nbsp;</span></td>
+								<td align="center"><input id="ac-armor-bonus" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">Armor<br>Bonus</span></td>
+								<td align="center"><input id="ac-shield-bonus" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">Shield<br>Bonus</span></td>
+								<td align="center"><input id="ac-dex-modifer" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">DEX<br>Modifier</span></td>
+								<td align="center"><input id="ac-size-modifer" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">Size<br>Modifier</span></td>
+								<td align="center"><input id="ac-natural-armor" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">Natural<br>Armor</span></td>
+								<td align="center"><input id="ac-deflection-modifer" type="text" size="1" value="0" disabled>+<br><span class="small-text-cell">Deflection<br>Modifier</span></td>
+								<td align="center"><input id="ac-misc-modifer" type="text" size="1" value="0" disabled><br><span class="small-text-cell">Misc<br>Modifier</span></td>
+						    </tr>
+						  </table>
+					   </td>
+					</tr><!-- end of 8th row in left table -->
+                    
+                    
+					<tr><!-- start of 9th row in left table -->
+					   <td class="big-text">TOUCH<br><span class="small-text-cell">Armor Class</span></td> 
+					   <td><input type="text" size="2" disabled value="0"></td>
+					   <td colspan="6">
+					      <table>
+							<tr>
+							    <td class="big-text">FLAT&#8209;FOOTED<br><span class="small-text-cell">Armor Class</span></td> 
+								<td><input type="text" size="1" disabled value="0"></td>
+								<td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Modifiers</span>
+                                    <div id="modifiers2" style="text-align:center;width:100px">&nbsp;</div></td>
+								
+						    </tr>
+						  </table>
+					   </td>
+					</tr><!-- end of 9th row in left table -->
+                </table>
+				<table width="490"> <!-- second table -->
+				  <tr> <!-- 1st row of second table in left column -->
+				        <td class="small-text-cell">Saving Throws</td>
+                        <td class="small-text-cell">Total</td>
+                        <td class="small-text-cell">Base<br>Save</td>
+                        <td class="small-text-cell">Ability<br>Modifier</td>
+                        <td class="small-text-cell">Magic<br>Modifer</td>
+						<td class="small-text-cell">Misc<br>Modifer</td>
+                        <td class="small-text-cell">Temp.<br>Modifer</td>
+                        <td class="small-text-cell">Modifiers</td>
+				  </tr>
+				  <tr class="small-text"> <!-- start of 3nd row in second table in left column -->
+                        <td class="big-text">FORTITUDE<br><span class="small-text-cell">(Constitution)</span></td>
+                        <td><input id="fortitude-total" type="text" size="2" disabled>=</td>
+                        <td><input id="fortitude-base-save" type="text" size="2" disabled>+</td>
+                        <td><input id="fortitude-ability-modifier" type="text" size="2" disabled>+</td>
+                        <td><input id="fortitude-magic-modifier" type="text" size="2" disabled>+</td>
+						<td><input id="fortitude-misc-modifier" type="text" size="2">+</td>
+                        <td><input id="fortitude-temporary-modifier" type="text" size="2" disabled></td>
+                        <td class="thin-border" rowspan="3"><div id="modifiers3" style="text-align:center;">0</div></td>
+                    </tr> <!-- end of 3nd row in table -->
+                    <tr class="small-text"> <!-- start of 4th row in second table in left column -->
+                        <td class="big-text">REFLEX<br><span class="small-text-cell">(Dexterity)</span></td>
+                        <td><input id="reflex-total" type="text" size="2" disabled>=</td>
+                        <td><input id="reflex-base-save" type="text" size="2" disabled>+</td>
+                        <td><input id="reflex-ability-modifier" type="text" size="2" disabled>+</td>
+                        <td><input id="reflex-magic-modifier" type="text" size="2" disabled>+</td>
+						<td><input id="reflex-misc-modifier" type="text" size="2">+</td>
+                        <td><input id="reflex-temporary-modifier" type="text" size="2" disabled></td>
+                    </tr> <!-- end of 4th row in table -->
+                    <tr class="small-text"> <!-- start of 45th row in second table in left column -->
+                        <td class="big-text">WILL<br><span class="small-text-cell">(Wisdom)</span></td>
+                        <td><input id="will-total" type="text" size="2" disabled>=</td>
+                        <td><input id="will-base-save" type="text" size="2" disabled>+</td>
+                        <td><input id="will-ability-modifier" type="text" size="2" disabled>+</td>
+                        <td><input id="will-magic-modifier" type="text" size="2" disabled>+</td>
+						<td><input id="will-misc-modifier" type="text" size="2">+</td>
+                        <td><input id="will-temporary-modifier" type="text" size="2" disabled></td>
+                    </tr> <!-- end of 5th row in table -->
+				</table> <!-- end of second table -->
+                <table width="490">
+                    <tr>
+                        <td class="big-text">BASE&nbsp;ATTACK&nbsp;BONUS</td>
+                        <td><input id="base-attack-bonus" type="text" size="2" disabled></td>
+                        <td class="less-big-text">SPELL&nbsp;RESISTANCE</td>
+                        <td><input id="spell-resistance" type="text" size="2" disabled></td>
+                    </tr>
+                </table>
+                <table width="490">
+                    <tr class="small-text">
+                        <td class="big-text" style="width:10em">CMB</td>
+                        <td align="center"><input id="cmb-total" type="text" size="2" disabled>=<br><span class="small-text-cell">Total<br>&nbsp;</span></td>
+                        <td align="center"><input id="cmb-base-attack-bonus" type="text" size="2" disabled>+<br><span class="small-text-cell">Base Attack<br>Bonus</span></td>
+                        <td align="center"><input id="cmb-strength-modifier" type="text" size="2" disabled>+<br><span class="small-text-cell">Strength<br>Modifier</span></td>
+                        <td align="center"><input id="cmb-size-modifier" type="text" size="2" disabled><br><span class="small-text-cell">Size<br>Modifier</span></td>
+                        <td align="center"><input id="cmb-modifiers" type="text" size="10" disabled><br><span class="small-text-cell">Modifiers<br>&nbsp;</span></td>
+                    </tr>
+                    <tr class="small-text">
+                        <td class="big-text">CMD</td>
+                        <td align="center"><input id="cmd-total" type="text" size="2" disabled>=<br><span class="small-text-cell">Total<br>&nbsp;</span></td>
+                        <td align="center"><input id="cmd-base-attack-bonus" type="text" size="2" disabled>+<br><span class="small-text-cell">Base Attack<br>Bonus</span></td>
+                        <td align="center"><input id="cmd-strength-modifier" type="text" size="2" disabled>+<br><span class="small-text-cell">Strength<br>Modifier</span></td>
+                        <td align="center"><input id="cmd-dexterity-modifier" type="text" size="2" disabled>+<br><span class="small-text-cell">Dexterity<br>Modifier</span></td>
+                        <td><input id="cmd-size-modifier" type="text" size="2" disabled> + 10<br><span class="small-text-cell">Size&nbsp;Modifier<br>&nbsp;</span></td>
+                    </tr>
+                </table>
+                <table width="420">
+                    <!-- weapon 1 -->
+                    <tr><td colspan="5">&nbsp;</td></tr>
+                    <tr class="rows-border">
+                        <td class="big-text" style="width:10em" colspan="3">WEAPON</td>
+                        <td class="less-big-text" >ATTACK&nbsp;BONUS</td>
+                        <td class="less-big-text">CRITICAL</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td colspan="3" align="center"><input id="weapon1" type="text" size="33" disabled ></td>
+                        <td><input id="weapon1-attack-bonus" type="text" size="10" disabled></td>
+                        <td><input id="weapon1-critical" type="text" size="10" disabled></td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td class="less-big-text">TYPE</td>
+                        <td class="less-big-text" >RANGE</td>
+                        <td class="less-big-text">AMMUNITION</td>
+                        <td class="less-big-text" colspan="2">DAMAGE</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td><input id="weapon1-type" type="text" size="10" disabled ></td>
+                        <td><input id="weapon1-range" type="text" size="10" disabled></td>
+                        <td><input id="weapon1-ammunition-type" type="text" size="10" disabled></td>
+                        <td colspan="2" align="center"><input id="weapon1-ammunition-damage" type="text" size="22" disabled></td>
+                    </tr>
+                    <!-- weapon 2 -->
+                    <tr><td colspan="5">&nbsp;</td></tr>
+                    <tr  class="rows-border">
+                        <td class="big-text" style="width:10em" colspan="3">WEAPON</td>
+                        <td class="less-big-text" >ATTACK&nbsp;BONUS</td>
+                        <td class="less-big-text">CRITICAL</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td colspan="3" align="center"><input id="weapon2" type="text" size="33" disabled ></td>
+                        <td><input id="weapon2-attack-bonus" type="text" size="10" disabled></td>
+                        <td><input id="weapon2-critical" type="text" size="10" disabled></td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td class="less-big-text">TYPE</td>
+                        <td class="less-big-text" >RANGE</td>
+                        <td class="less-big-text">AMMUNITION</td>
+                        <td class="less-big-text" colspan="2">DAMAGE</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td><input id="weapon2-type" type="text" size="10" disabled ></td>
+                        <td><input id="weapon2-range" type="text" size="10" disabled></td>
+                        <td><input id="weapon2-ammunition-type" type="text" size="10" disabled></td>
+                        <td colspan="2" align="center"><input id="weapon2-ammunition-damage" type="text" size="22" disabled></td>
+                    </tr>
+                    <!-- weapon 3 -->
+                    <tr><td colspan="5">&nbsp;</td></tr>
+                    <tr  class="rows-border">
+                        <td class="big-text" style="width:10em" colspan="3">WEAPON</td>
+                        <td class="less-big-text" >ATTACK&nbsp;BONUS</td>
+                        <td class="less-big-text">CRITICAL</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td colspan="3" align="center"><input id="weapon3" type="text" size="33" disabled ></td>
+                        <td><input id="weapon3-attack-bonus" type="text" size="10" disabled></td>
+                        <td><input id="weapon3-critical" type="text" size="10" disabled></td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td class="less-big-text">TYPE</td>
+                        <td class="less-big-text" >RANGE</td>
+                        <td class="less-big-text">AMMUNITION</td>
+                        <td class="less-big-text" colspan="2">DAMAGE</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td><input id="weapon3-type" type="text" size="10" disabled ></td>
+                        <td><input id="weapon3-range" type="text" size="10" disabled></td>
+                        <td><input id="weapon3-ammunition-type" type="text" size="10" disabled></td>
+                        <td colspan="2" align="center"><input id="weapon3-ammunition-damage" type="text" size="22" disabled></td>
+                    </tr>
+
+                    <!-- weapon 4 -->
+                    <tr><td colspan="5">&nbsp;</td></tr>
+                    <tr  class="rows-border">
+                        <td class="big-text" style="width:10em" colspan="3">WEAPON</td>
+                        <td class="less-big-text" >ATTACK&nbsp;BONUS</td>
+                        <td class="less-big-text">CRITICAL</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td colspan="3" align="center"><input id="weapon4" type="text" size="33" disabled ></td>
+                        <td><input id="weapon4-attack-bonus" type="text" size="10" disabled></td>
+                        <td><input id="weapon4-critical" type="text" size="10" disabled></td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td class="less-big-text">TYPE</td>
+                        <td class="less-big-text" >RANGE</td>
+                        <td class="less-big-text">AMMUNITION</td>
+                        <td class="less-big-text" colspan="2">DAMAGE</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td><input id="weapon4-type" type="text" size="10" disabled ></td>
+                        <td><input id="weapon4-range" type="text" size="10" disabled></td>
+                        <td><input id="weapon4-ammunition-type" type="text" size="10" disabled></td>
+                        <td colspan="2" align="center"><input id="weapon4-ammunition-damage" type="text" size="22" disabled></td>
+                    </tr>
+
+                    <!-- weapon 5 -->
+                    <tr><td colspan="5">&nbsp;</td></tr>
+                    <tr  class="rows-border">
+                        <td class="big-text" style="width:10em" colspan="3">WEAPON</td>
+                        <td class="less-big-text" >ATTACK&nbsp;BONUS</td>
+                        <td class="less-big-text">CRITICAL</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td colspan="3" align="center"><input id="weapon5" type="text" size="33" disabled ></td>
+                        <td><input id="weapon5-attack-bonus" type="text" size="10" disabled></td>
+                        <td><input id="weapon5-critical" type="text" size="10" disabled></td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td class="less-big-text">TYPE</td>
+                        <td class="less-big-text" >RANGE</td>
+                        <td class="less-big-text">AMMUNITION</td>
+                        <td class="less-big-text" colspan="2">DAMAGE</td>
+                    </tr>
+                    <tr class="rows-border">
+                        <td><input id="weapon5-type" type="text" size="10" disabled ></td>
+                        <td><input id="weapon5-range" type="text" size="10" disabled></td>
+                        <td><input id="weapon5-ammunition-type" type="text" size="10" disabled></td>
+                        <td colspan="2" align="center"><input id="weapon5-ammunition-damage" type="text" size="22" disabled></td>
+                    </tr>
+
+                </table>
+
+
+            </td> <!-- end of left cell -->
+                            
+            <td valign="top"> <!-- right cell  -->
+                <table width="420" border="0" cellspacing="0" cellpadding="0"> <!-- right column table -->
+                    <tr valign="top">
+                        <td class="big-text" style= "width:4em;">SPEED<br><span class="small-text-cell">Land</span></td>
+                        <td colspan="2" class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Base Speed</span>
+                            <div id="base-speed" style="text-align:center;">0</div></td>
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">With Armor</span>
+                            <div id="with-armor" style="text-align:center;">0</div></td>
+                        <td rowspan="2" class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Temp Modifiers</span>
+                            <div id="temp-modifiers" style="text-align:center;">0<br>0</div></td>
+                    </tr> <!-- end of 1st row in right table --> 
+                    <tr> <!-- start of 2nd row in right table -->
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Fly Maneuverability</span>
+                            <div id="fly-maneuverability" style="text-align:center;">0</div></td>
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Swim</span>
+                            <div id="swim" style="text-align:center;">0</div></td>
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;"> craft</span>
+                            <div id="climb" style="text-align:center;">0</div></td>
+                        <td class="thin-border"><span class="small-text-cell" style="vertical-align:top;">Burrow</span>
+                            <div id="burrow" style="text-align:center;">0</div></td>
+                    </tr> <!-- end of 2nd row in right table -->
+					<tr> <!-- start of 3rd row in right table -->
+					   <td class="big-text" style= "width:100%;text-align:center;" colspan="5">SKILLS</td>
+					</tr> <!-- end of 3rd row in right table -->
+					<tr> <!-- start of 4th row in right table -->
+					   <td>&nbsp;&nbsp;&nbsp;Skill Names</td>
+					   <td class="small-text">Total<br>Bonus</td>
+					   <td class="small-text">Ability<br>Mod.</td>
+					   <td class="small-text">Ranks<br>&nbsp;</td>
+					   <td class="small-text">Misc.<br>Mod.</td>
+					</tr> <!-- end of 4th row in right table -->
+                    
+
+
+					<tr class="medium-text"> <!-- start of 5th row in right table -->
+					   <td><label><input id="acrobatics-checkbox" type="checkbox">Acrobatics</label></td>
+					   <td><input id="acrobatics-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="acrobatics-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="acrobatics-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="acrobatics-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr> <!-- end of 5th row in right table -->
+                    <tr class="medium-text"> <!-- start of 6th row in right table -->
+                        <td><label><input id="appraise-checkbox" type="checkbox">Appraise</label></td>
+                        <td><input id="appraise-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="appraise-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="appraise-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="appraise-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr> <!-- end of 6th row in right table -->
+                    <tr class="medium-text"> 
+                        <td><label><input id="bluff-checkbox" type="checkbox">Bluff</label></td>
+                        <td><input id="bluff-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="bluff-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="bluff-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="bluff-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr> 
+                    <tr class="medium-text"> 
+                        <td><label><input id="climb-checkbox" type="checkbox">Climb</label></td>
+                        <td><input id="climb-total-bonus" type="text" size="2" disabled value="0">=STR</td>
+					   	<td><input id="climb-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="climb-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="climb-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="craft1-checkbox" type="checkbox">Craft:<select name="crafts1">
+                            <option>&nbsp;</option>
+                            <option>tokens</option>>
+                            <option>charms</option>
+                            </select></label>
+                        </td>
+                        <td><input id="craft1-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="craft1-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="craft1-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="craft1-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="craft2-checkbox" type="checkbox">Craft:<select name="crafts2">
+                            <option>&nbsp;</option>
+                            <option>tokens</option>>
+                            <option>charms</option>
+                        </select></label>
+                        </td>
+                        <td><input id="craft2-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="craft2-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="craft2-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="craft2-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="craft3-checkbox" type="checkbox">Craft:<select name="crafts3">
+                            <option>&nbsp;</option>
+                            <option>tokens</option>>
+                            <option>charms</option>
+                        </select></label>
+                        </td>
+                        <td><input id="craft3-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="craft3-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="craft3-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="craft3-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="diplomacy-checkbox" type="checkbox">Diplomacy</label></td>
+                        <td><input id="diplomacy-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="diplomacy-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="diplomacy-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="diplomacy-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="disableDevice-checkbox" type="checkbox">Disable Device*</label></td>
+                        <td><input id="disableDevice-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="disableDevice-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="disableDevice-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="disableDevice-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="disguise-checkbox" type="checkbox">Disguise</label></td>
+                        <td><input id="disguise-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="disguise-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="disguise-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="disguise-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="escapeArtist-checkbox" type="checkbox">Escape Artist</label></td>
+                        <td><input id="escapeArtist-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="escapeArtist-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="escapeArtist-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="escapeArtist-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="fly-checkbox" type="checkbox">Fly</label></td>
+                        <td><input id="fly-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="fly-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="fly-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="fly-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="handleAnimal-checkbox" type="checkbox">Handle Animal*</label></td>
+                        <td><input id="handleAnimal-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="handleAnimal-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="handleAnimal-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="handleAnimal-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="heal-checkbox" type="checkbox">Heal</label></td>
+                        <td><input id="heal-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="heal-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="heal-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="heal-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="intimidate-checkbox" type="checkbox">Intimidate</label></td>
+                        <td><input id="intimidate-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="intimidate-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="intimidate-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="intimidate-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text"> 
+                        <td><label><input id="knowledgeArcana-checkbox" type="checkbox">Knowledge&nbsp;(Arcana)*</label></td>
+                        <td><input id="knowledgeArcana-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeArcana-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeArcana-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeArcana-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+					<tr class="medium-text"> 
+					   <td><label><input id="knowledgeDungeoneering-checkbox" type="checkbox">Knowledge&nbsp;(Dungeoneering)*</label></td>
+					   <td><input id="knowledgeDungeoneering-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeDungeoneering-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeDungeoneering-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeDungeoneering-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr> 
+					<tr class="medium-text">
+                        <td><label><input id="knowledgeEngineering-checkbox" type="checkbox">Knowledge&nbsp;(Engineering)*</label></td>
+                        <td><input id="knowledgeEngineering-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeEngineering-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeEngineering-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeEngineering-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeGeography-checkbox" type="checkbox">Knowledge&nbsp;(Geography)*</label></td>
+                        <td><input id="knowledgeGeography-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeGeography-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeGeography-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeGeography-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeHistory-checkbox" type="checkbox">Knowledge&nbsp;(History)*</label></td>
+                        <td><input id="knowledgeHistory-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeHistory-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeHistory-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeHistory-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeLocal-checkbox" type="checkbox">Knowledge&nbsp;(Local)*</label></td>
+                        <td><input id="knowledgeLocal-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeLocal-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeLocal-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeLocal-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeNature-checkbox" type="checkbox">Knowledge&nbsp;(Nature)*</label></td>
+                        <td><input id="knowledgeNature-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeNature-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeNature-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeNature-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeNobility-checkbox" type="checkbox">Knowledge&nbsp;(Nobility)*</label></td>
+                        <td><input id="knowledgeNobility-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeNobility-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeNobility-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeNobility-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgePlanes-checkbox" type="checkbox">Knowledge&nbsp;(Planes)*</label></td>
+                        <td><input id="knowledgePlanes-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgePlanes-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgePlanes-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgePlanes-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="knowledgeReligion-checkbox" type="checkbox">Knowledge&nbsp;(Religion)*</label></td>
+                        <td><input id="knowledgeReligion-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="knowledgeReligion-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="knowledgeReligion-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="knowledgeReligion-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="linguistics-checkbox" type="checkbox">Linguistics*</label></td>
+                        <td><input id="linguistics-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="linguistics-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="linguistics-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="linguistics-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="perception-checkbox" type="checkbox">Perception</label></td>
+                        <td><input id="perception-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="perception-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="perception-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="perception-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="perform1-checkbox" type="checkbox">Perform:<select name="perform1">
+                            <option>&nbsp;</option>
+                            <option>perform1</option>>
+                            <option>perform2</option>
+                        </select></label>
+                        </td>
+                        <td><input id="perform1-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="perform1-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="perform1-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="perform1-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="perform2-checkbox" type="checkbox">Perform:<select name="perform2">
+                            <option>&nbsp;</option>
+                            <option>perform1</option>>
+                            <option>perform2</option>
+                        </select></label>
+                        </td>
+                        <td><input id="perform2-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="perform2-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="perform2-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="perform2-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="profession1-checkbox" type="checkbox">Profession*:<select name="crafts1">
+                            <option>&nbsp;</option>
+                            <option>profess1</option>>
+                            <option>profess2</option>
+                        </select></label>
+                        </td>
+                        <td><input id="profession1-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="profession1-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="profession1-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="profession1-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="profession2-checkbox" type="checkbox">Profession*:<select name="crafts1">
+                            <option>&nbsp;</option>
+                            <option>profess1</option>>
+                            <option>profess2</option>
+                        </select></label>
+                        </td>
+                        <td><input id="profession2-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="profession2-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="profession2-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="profession2-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="ride-checkbox" type="checkbox">Ride</label></td>
+                        <td><input id="ride-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="ride-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="ride-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="ride-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="senseMotive-checkbox" type="checkbox">Sense Motive</label></td>
+                        <td><input id="senseMotive-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="senseMotive-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="senseMotive-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="senseMotive-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="slightOfHand-checkbox" type="checkbox">Slight Of Hand*</label></td>
+                        <td><input id="slightOfHand-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="slightOfHand-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="slightOfHand-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="slightOfHand-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="spellcraft-checkbox" type="checkbox">Spellcraft*</label></td>
+                        <td><input id="spellcraft-total-bonus" type="text" size="2" disabled value="0">=INT</td>
+					   	<td><input id="spellcraft-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="spellcraft-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="spellcraft-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="stealth-checkbox" type="checkbox">Stealth</label></td>
+                        <td><input id="stealth-total-bonus" type="text" size="2" disabled value="0">=DEX</td>
+					   	<td><input id="stealth-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="stealth-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="stealth-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="survival-checkbox" type="checkbox">Survival</label></td>
+                        <td><input id="survival-total-bonus" type="text" size="2" disabled value="0">=WIS</td>
+					   	<td><input id="survival-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="survival-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="survival-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="swim-checkbox" type="checkbox">Swim</label></td>
+                        <td><input id="swim-total-bonus" type="text" size="2" disabled value="0">=STR</td>
+					   	<td><input id="swim-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="swim-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="swim-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+                    <tr class="medium-text">
+                        <td><label><input id="useMagicDevice-checkbox" type="checkbox">Use Magic Device</label></td>
+                        <td><input id="useMagicDevice-total-bonus" type="text" size="2" disabled value="0">=CHA</td>
+					   	<td><input id="useMagicDevice-ability-mod" type="text" size="1" disabled value="0">+</td>
+						<td><input id="useMagicDevice-ranks" type="number" size="1" min="0" max="100" value="0" maxlength="3">+</td>
+						<td><input id="useMagicDevice-misc-mod" type="text" size="1" disabled value="0"></td>
+					</tr>
+
+                </table> <!-- end of right column table -->
+            </td> <!-- end of cell for right column in top-most table -->
+        </tr> <!-- end of table for left column --> 
+	</table>
+</body>
+</html>
