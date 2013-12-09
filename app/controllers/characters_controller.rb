@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        format.html { redirect_to new_character_attribute_list_path(@character), notice: 'Character was successfully created.' }
+        format.html { redirect_to new_character_attrubute_list_path(@character), notice: 'Character was successfully created.' }
         format.json { render action: 'show', status: :created, location: @character }
       else
         format.html { render action: 'new' }
