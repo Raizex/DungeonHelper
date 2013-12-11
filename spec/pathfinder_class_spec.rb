@@ -17,4 +17,14 @@ describe PathfinderClass do
 		pClass = PathfinderClass.new(:base_attack_bonuses => "1, 2, 3, 4, 5, 6/1, 7/2, 8/3, 9/4, 10/5, 11/6/1, 12/7/2, 13/8/3, 14/9/4, 15/10/5, 16/11/6/1, 17/12/7/2, 18/14/8/3, 19/14/9/4, 20/15/10/5")
 		pClass.baseAttackBonuses.should == {1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => [6,1], 7 => [7,2], 8 => [8,3], 9 => [9,4], 10 => [10,5], 11 => [11,6,1], 12 => [12,7,2], 13 => [13,8,3], 14 => [14,9,4], 15 => [15,10,5], 16 => [16,11,6,1], 17 => [17,12,7,2], 18 => [18,14,8,3], 19 => [19,14,9,4], 20 => [20,15,10,5]}
 	end
+
+	it "should return a hash of base saves per level" do
+		pClass = PathfinderClass.new(:base_saves => "2/0/0, 3/0/0, 3/1/1, 4/1/1, 4/1/1, 5/2/2")
+		pClass.baseSaves.should == {1=>{:FORT=>2, :REF=>0, :WILL=>0}, 
+		                            2=>{:FORT=>3, :REF=>0, :WILL=>0}, 
+		                            3=>{:FORT=>3, :REF=>0, :WILL=>1}, 
+		                            4=>{:FORT=>4, :REF=>0, :WILL=>1}, 
+		                            5=>{:FORT=>4, :REF=>0, :WILL=>1}, 
+		                            6=>{:FORT=>5, :REF=>0, :WILL=>2}}
+	end
 end

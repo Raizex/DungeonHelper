@@ -40,4 +40,19 @@ class PathfinderClass < ActiveRecord::Base
 		return babHash
 	end
 
+	#returns a hash of base saves per level
+	def baseSaves
+		baseSaveHash = {}
+		n = 1
+		baseSaveStrings = self.base_saves.split(%r{ *, *})
+		baseSaveStrings.each do |baseSave|
+			baseSave.split(%r{ */ *})
+			levelHash = {}
+			levelHash = {:FORT => baseSave[0].to_i, :REF => baseSave[1].to_i, :WILL => baseSave[2].to_i}
+			baseSaveHash[n] = levelHash
+			n += 1
+		end
+		return baseSaveHash
+	end
+
 end
