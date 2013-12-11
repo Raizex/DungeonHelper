@@ -9,10 +9,10 @@ Background:
 	Given I have logged in
 	And I have completed the first step of the character creation process
 
-Scenario: Beging ability score selection
+Scenario: Beginning ability score selection
 	Then I should be able to choose my ability scores
 
-Scenario: Beging ability score selection
+Scenario: Creating an attribute list 
 	Given I have created an attribute list
 	And I am on the attribute list page
 	Then I should see that attribute list 
