@@ -27,4 +27,6 @@ describe PathfinderClass do
 		                            5=>{:FORT=>4, :REF=>0, :WILL=>1}, 
 		                            6=>{:FORT=>5, :REF=>0, :WILL=>2}}
 	end
+
+	
 end

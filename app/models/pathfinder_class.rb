@@ -40,7 +40,10 @@ class PathfinderClass < ActiveRecord::Base
 		return babHash
 	end
 
-	#returns a hash of base saves per level
+	#returns a hash of base saves per level. The hash is a hash of hashes; each level key
+	# has a hash of saves with the keys being the abbreviation of the save and the values
+	# the actual base save value. The saves are abbreviated as: fortitude = FORT, reflex = REF,
+	# and WILL = will (suprise)
 	def baseSaves
 		baseSaveHash = {}
 		n = 1
