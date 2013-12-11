@@ -7,7 +7,12 @@ Feature: Ability scores can be assigned as part of the character creation proces
 
 Background:
 	Given I have logged in
+	And I have completed the first step of the character creation process
 
 Scenario: Beging ability score selection
-	Given I have completed the first step of the character creation process
-	Then should be able to choose my ability scores
+	Then I should be able to choose my ability scores
+
+Scenario: Beging ability score selection
+	Given I have created an attribute list
+	And I am on the attribute list page
+	Then I should see that attribute list 
