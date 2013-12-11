@@ -10,8 +10,6 @@ DungeonHelper::Application.routes.draw do
 
   resources :races, :only => [:index, :show]
 
-  resources :ability_scores
-
   resources :characters do
     resources :attribute_lists
   end

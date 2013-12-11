@@ -25,7 +25,6 @@ Given(/^I log out$/) do
   click_on 'Logout'
 end
 
-
 And(/^log in with the wrong information$/) do
   visit '/login'
   fill_in 'Email', with: @user.email
