@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @feat.name %>
+</p>
+
+<p>
+  <strong>Types:</strong>
+  <%= @feat.feat_types %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @feat.description %>
+</p>
+
+<p>
+  <strong>Prerequisites:</strong>
+  <%= @feat.prerequisites %>
+</p>
+
+<p>
+  <strong>Prerequisite feats:</strong>
+  <%= @feat.prerequisite_feats %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @feat.link %>
+</p>
+
+<%= link_to 'Edit', edit_feat_path(@feat) %> |
+<%= link_to 'Back', feats_path %>

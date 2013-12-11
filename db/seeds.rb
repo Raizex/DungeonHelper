@@ -37,10 +37,114 @@ classes = [{:class_name => "Fighter",
     		:bonus_languages => nil,
     		:miscelaneous_features => nil}]
 
+feats = [{:name => "Power Attack",
+	      :feat_types => "G, C",
+	      :description => "Trade melee attack bonus for damage",
+	      :prerequisites => "STR 13, base attack bonus +1",
+	      :prerequisite_feats => nil,
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/power-attack-combat---final"},
+	     # {:name => "",
+	     #  :type => "",
+	     #  :description => "",
+	     #  :prerequisites => "",
+	     #  :prerequisite_feats => "",
+	      #  :link => ""}
+	      {:name => "Cleave",
+	      :feat_types => "G, C",
+	      :description => "Make an additional Attack if the first one hits",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/cleave-combat"},
+	      
+	      {:name => "Great Cleave",
+	      :feat_types => "G, C",
+	      :description => "Make an additional Attack after each attack",
+	      :prerequisites => "base attack bonus +6",
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/great-cleave-combat---final"},
+	      
+	      {:name => "Improved Bull Rush",
+	      :feat_types => "G, C",
+	      :description => "+2 bonus on bull rush attempts, no attack of opportunity",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/improved-bull-rush-combat---final"},
+	      
+	      {:name => "Greater Bull Rush",
+	      :feat_types => "G, C",
+	      :description => "Enemies you bull rush provoke attacks of opportunity",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack, Improved Bull Rush",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/greater-bull-rush-combat---final"},
+	      
+	      {:name => "unseat",
+	      :feat_types => "G, C",
+	      :description => "Knock enemies from thier mounts",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack, Improved Bull Rush, Mounted Combat",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/unseat-combat---final"},
+	      
+	      
+	      {:name => "Improved Drag",
+	      :feat_types => "G, C",
+	      :description => "+2 bonus on drag attempts, no attack of opportunity",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/improved-drag-combat---final"},
+	      
+	      {:name => "Greater Drag",
+	      :feat_types => "G, C",
+	      :description => "Enemies you drag provoke attacks of opportunity",
+	      :prerequisites => "Base attack bonus +6",
+	      :prerequisite_feats => "Power Attack, Improved Drag",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/greater-drag-combat---final"},
+	      
+	      
+	      {:name => "Improved Overrun",
+	      :feat_types => "G, C",
+	      :description => "+2 bonus on overrun attempts, no attack of opportunity",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/improved-overrun-combat---final"},
+	      
+	      {:name => "Greater Overrun",
+	      :feat_types => "G, C",
+	      :description => "Enemies you overrun provoke attacks of opportunity",
+	      :prerequisites => "Base attack bonus +6",
+	      :prerequisite_feats => "Power Attack, Improved Overrun",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/greater-overrun-combat---final"},
+	      
+	      {:name => "Improved Sunder",
+	      :feat_types => "G, C",
+	      :description => "+2 bonus on sunder attempts, no attack of opportunity",
+	      :prerequisites => nil,
+	      :prerequisite_feats => "Power Attack",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/improved-sunder-combat---final"},
+	      
+	      {:name => "Greater Overrun",
+	      :feat_types => "G, C",
+	      :description => "Damage from sunder transfers to your enemy",
+	      :prerequisites => "Base attack bonus +6",
+	      :prerequisite_feats => "Power Attack, Improved Sunder",
+	      :link => "http://www.d20pfsrd.com/feats/combat-feats/greater-sunder-combat---final"},
+	      
+	  ]
+
+
 races.each do |race|
-  Race.create!(race)
+  unless Race.exists?(race_name: race[:race_name])
+  	Race.create!(race)
+  end
 end
 
 classes.each do |pclass|
-	PathfinderClass.create!(pclass)
+	unless PathfinderClass.exists?(class_name: pclass[:class_name])
+		PathfinderClass.create!(pclass)
+	end
+end
+
+feats.each do |feat|
+	unless Feat.exists?(name: feat[:name])
+		Feat.create!(feat)
+	end
 end

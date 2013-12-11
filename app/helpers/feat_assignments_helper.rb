@@ -1,0 +1,2 @@
+module FeatAssignmentsHelper
+end

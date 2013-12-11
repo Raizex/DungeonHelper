@@ -1,0 +1,37 @@
+<h1>Listing feats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Types</th>
+      <th>Description</th>
+      <th>Prerequisites</th>
+      <th>Prerequisite feats</th>
+      <th>Link</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feats.each do |feat| %>
+      <tr>
+        <td><%= feat.name %></td>
+        <td><%= feat.feat_types %></td>
+        <td><%= feat.description %></td>
+        <td><%= feat.prerequisites %></td>
+        <td><%= feat.prerequisite_feats %></td>
+        <td><%= feat.link %></td>
+        <td><%= link_to 'Show', feat %></td>
+        <td><%= link_to 'Edit', edit_feat_path(feat) %></td>
+        <td><%= link_to 'Destroy', feat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feat', new_feat_path %>
