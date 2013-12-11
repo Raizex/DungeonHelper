@@ -17,7 +17,19 @@ Then(/^I should be able to choose my ability scores$/) do
 end
 
 Given(/^I have created an attribute list$/) do
-	
+	step "I have completed the first step of the character creation process"
+	@attribute_list = AttributeList.new({:character_id => @character.id,
+										 :str => 8, :dex => 9,
+										 :con => 10, :int => 11,
+										 :wis => 12, :cha => 13})
+	fill_in 'attribute_list_str', with: @attribute_list.str
+	fill_in 'attribute_list_dex', with: @attribute_list.dex
+	fill_in 'attribute_list_con', with: @attribute_list.con
+	fill_in 'attribute_list_int', with: @attribute_list.int
+	fill_in 'attribute_list_wis', with: @attribute_list.wis
+	fill_in 'attribute_list_cha', with: @attribute_list.cha
+	click_button 'Assign Ability Scores'
+	@attribute_list = AttributeList.find_by_character_id(@attribute_list.character_id)
 end
 
 Given(/^I am on the attribute list page$/) do
