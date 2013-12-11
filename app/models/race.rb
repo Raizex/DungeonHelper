@@ -20,4 +20,13 @@ class Race < ActiveRecord::Base
 		return attrMods
 	end
 
+	#Returns an array of default languages for the race
+	def defaultLanguages
+		return self.default_languages.split(%r{, ?})
+	end
+
+	#Returns an array of available languages from the race
+	def availableLanguages
+		return self.available_languages.split(%r{, ?})
+	end
 end
