@@ -8,7 +8,7 @@ class Race < ActiveRecord::Base
 	#Returns a hash of attribute modifiers specific to the race
 	def attributeModifiers 
 		attrMods = Hash.new
-		attrStrings = self.attribute_modifiers.split(%r{, ?})
+		attrStrings = self.attribute_modifiers.split(%r{ *, *})
 		attrStrings.each do |mod|
 			modValue = mod.split(' ')
 			modValue[0] = modValue[0].upcase
@@ -22,11 +22,11 @@ class Race < ActiveRecord::Base
 
 	#Returns an array of default languages for the race
 	def defaultLanguages
-		return self.default_languages.split(%r{, ?})
+		return self.default_languages.split(%r{ *, *})
 	end
 
 	#Returns an array of available languages from the race
 	def availableLanguages
-		return self.available_languages.split(%r{, ?})
+		return self.available_languages.split(%r{ *, *})
 	end
 end
