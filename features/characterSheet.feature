@@ -5,9 +5,8 @@ Feature: a character page will show the things that make up that character, incl
 	I would like to view a page devoted to my character that shows those attributes
 
 Background:
-	Given I added a user
+	Given I have logged in
 	And there is a race available
-	And I login with my account
 	And I create a new character
 	And I am on my character page
 
