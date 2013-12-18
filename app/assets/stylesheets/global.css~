@@ -1,0 +1,15 @@
+h1{
+font-family:"Times New Roman";
+font-size:20px;
+text-align:center;
+background-color:#d0e4fe;
+}
+
+body{
+text-align:center;
+background-image:url('/images/sword.jpg');
+
+}
+
+
+
