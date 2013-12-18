@@ -11,7 +11,7 @@ DungeonHelper::Application.routes.draw do
   resources :races, :only => [:index, :show]
 
   resources :characters do
-    resources :attribute_lists
+    resource :attribute_list
   end
 
   get "user_sessions/new"

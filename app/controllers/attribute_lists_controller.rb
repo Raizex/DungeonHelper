@@ -29,12 +29,11 @@ class AttributeListsController < ApplicationController
   # POST /attribute_lists
   # POST /attribute_lists.json
   def create
-    @character
     @attribute_list = AttributeList.new(attribute_list_params)
 
     respond_to do |format|
       if @attribute_list.save
-        format.html { redirect_to [@character, @attribute_list], notice: 'Attribute list was successfully created.' }
+        format.html { redirect_to character_attribute_list_path(@character), notice: 'Attribute list was successfully created.' }
         format.json { render action: 'show', status: :created, location: @attribute_list }
       else
         format.html { render action: 'new' }
@@ -48,7 +47,7 @@ class AttributeListsController < ApplicationController
   def update
     respond_to do |format|
       if @attribute_list.update(attribute_list_params)
-        format.html { redirect_to @attribute_list, notice: 'Attribute list was successfully updated.' }
+        format.html { redirect_to @character_attribute_list_path, notice: 'Attribute list was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

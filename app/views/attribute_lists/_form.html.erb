@@ -1,4 +1,4 @@
-<%= form_for [@character, @attribute_list] do |f| %>
+<%= form_for @attribute_list, :url => character_path(@character) do |f| %>
   <% if @attribute_list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@attribute_list.errors.count, "error") %> prohibited this attribute_list from being saved:</h2>
@@ -12,6 +12,30 @@
   <% end %>
 
   <div class="actions">
+  <div class="field">
+    <%= f.label :strength %><br>
+    <%= f.text_field :str %>
+  </div>
+  <div class="field">
+    <%= f.label :dexterity %><br>
+    <%= f.text_field :dex %>
+  </div>
+  <div class="field">
+    <%= f.label :constitution %><br>
+    <%= f.text_field :con %>
+  </div>
+  <div class="field">
+    <%= f.label :intelligence %><br>
+    <%= f.text_field :int %>
+  </div>
+  <div class="field">
+    <%= f.label :wisdom %><br>
+    <%= f.text_field :wis %>
+  </div>
+  <div class="field">
+    <%= f.label :charisma %><br>
+    <%= f.text_field :cha %>
+  </div>
     <%= f.submit %>
   </div>
 <% end %>
