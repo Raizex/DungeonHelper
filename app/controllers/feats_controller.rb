@@ -69,6 +69,6 @@ class FeatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feat_params
-      params.require(:feat).permit(:name, :type, :description, :prerequisites, :prerequisite_feats, :link)
+      params.require(:feat).permit(:name, :feat_types, :description, :prerequisites, :prerequisite_feats, :link)
     end
 end

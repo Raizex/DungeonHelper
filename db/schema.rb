@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211031759) do
+ActiveRecord::Schema.define(version: 20131213171823) do
 
   create_table "attribute_lists", force: true do |t|
     t.integer  "character_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20131211031759) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "feat_types"
+    t.string   "feat_types"
   end
 
   create_table "pathfinder_classes", force: true do |t|
