@@ -14,27 +14,36 @@
   <div class="actions">
   <div class="field">
     <%= f.label :strength %><br>
-    <%= f.text_field :str %>
+    <%= f.number_field :str %> 
+    
+   
+  <%if false%>  
+  THIS IS A COMMENT
+  <input id="cha-ability-score" type="number" size="1" min="0" max="100" value="10">
+   <%= f.number_field :str %> 
+  type="number" size="1" min="0" max="100" value="10"
+  <%end%>
+  
   </div>
   <div class="field">
     <%= f.label :dexterity %><br>
-    <%= f.text_field :dex %>
+    <%= f.number_field :dex %>
   </div>
   <div class="field">
     <%= f.label :constitution %><br>
-    <%= f.text_field :con %>
+    <%= f.number_field :con %>
   </div>
   <div class="field">
     <%= f.label :intelligence %><br>
-    <%= f.text_field :int %>
+    <%= f.number_field :int %>
   </div>
   <div class="field">
     <%= f.label :wisdom %><br>
-    <%= f.text_field :wis %>
+    <%= f.number_field :wis %>
   </div>
   <div class="field">
     <%= f.label :charisma %><br>
-    <%= f.text_field :cha %>
+    <%= f.number_field :cha %>
   </div>
     <%= f.submit %>
   </div>
