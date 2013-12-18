@@ -1,5 +1,5 @@
 DungeonHelper::Application.routes.draw do
-  
+
   resources :feat_assignments
 
   resources :feats

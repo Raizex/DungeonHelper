@@ -1,6 +1,7 @@
 class AttributeListsController < ApplicationController
   before_action :set_attribute_list, only: [:show, :edit, :update, :destroy]
   before_action :getCharacter
+  respond_to :html, :xml, :json
 
   def getCharacter
     @character = Character.find(params[:character_id])
@@ -19,7 +20,7 @@ class AttributeListsController < ApplicationController
 
   # GET /attribute_lists/new
   def new
-    @attribute_list = AttributeList.new
+    @attribute_list = @character.build_attribute_list
   end
 
   # GET /attribute_lists/1/edit
@@ -29,7 +30,7 @@ class AttributeListsController < ApplicationController
   # POST /attribute_lists
   # POST /attribute_lists.json
   def create
-    @attribute_list = AttributeList.new(attribute_list_params)
+    @attribute_list = @character.build_attribute_list(attribute_list_params)
 
     respond_to do |format|
       if @attribute_list.save
@@ -69,11 +70,12 @@ class AttributeListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_attribute_list
-      @attribute_list = AttributeList.find(params[:id])
+      @character = Character.find(params[:character_id])
+      @attribute_list = @character.attribute_list
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attribute_list_params
-      params[:attribute_list]
+      params.require(:attribute_list).permit(:character_id, :str, :dex, :con, :int, :wis, :cha)
     end
 end

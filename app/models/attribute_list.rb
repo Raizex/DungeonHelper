@@ -1,3 +1,4 @@
 class AttributeList < ActiveRecord::Base
-	has_many :ability_scores
+	belongs_to :character
+	self.primary_key ='id'
 end
