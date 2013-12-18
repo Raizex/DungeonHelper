@@ -12,6 +12,10 @@ DungeonHelper::Application.routes.draw do
 
   resources :characters do
     resource :attribute_list
+    member do
+      get :set_race, :to => 'characters#set_race'
+      get :set_class, :to => 'characters#set_class'
+    end
   end
 
   get "user_sessions/new"

@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :set_race, :set_class]
 
   # GET /characters
   # GET /characters.json
@@ -64,6 +64,12 @@ class CharactersController < ApplicationController
       format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
+  end
+
+  def set_race
+  end
+
+  def set_class
   end
 
   private

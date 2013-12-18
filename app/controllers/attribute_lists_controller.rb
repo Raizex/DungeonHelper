@@ -34,7 +34,7 @@ class AttributeListsController < ApplicationController
 
     respond_to do |format|
       if @attribute_list.save
-        format.html { redirect_to character_attribute_list_path(@character), notice: 'Attribute list was successfully created.' }
+        format.html { redirect_to set_race_character_path(@character) }
         format.json { render action: 'show', status: :created, location: @attribute_list }
       else
         format.html { render action: 'new' }
