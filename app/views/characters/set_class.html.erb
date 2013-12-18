@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag "global.css" %>
+
+<p>
+	<%= form_for(@character) do |f| %>
+	  <div class="field">
+	    <%= f.label :class_id %><br>
+	    <%= f.select(:class_id, PathfinderClass.all.map { |c| [c.class_name, c.id] }) %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit "Update Character", :name => "UpdateCharacter", :value => "Update Class" %>
+	  </div>
+	<% end %>
+</p>

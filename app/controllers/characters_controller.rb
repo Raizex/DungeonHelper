@@ -44,7 +44,7 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.update(character_params)
         if params["UpdateCharacter"] == "Update Race"
-          format.html { redirect_to(:back, notice: 'Race updated') }
+          format.html { redirect_to  set_class_character_path(@character)}
         else
           format.html { redirect_to character_path, notice: 'Character was successfully updated.' }
         end
@@ -80,6 +80,6 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :summary, :campaign, :user_id, :race_id)
+      params.require(:character).permit(:name, :summary, :campaign, :user_id, :race_id, :class_id)
     end
 end

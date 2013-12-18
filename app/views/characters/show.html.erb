@@ -99,5 +99,10 @@
 	<% end %>
 </p>
 
+<p>
+	<strong>Class:</strong>
+	<%= PathfinderClass.find(@character.class_id).class_name %>
+</p>
+
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', user_path(current_user) %>
