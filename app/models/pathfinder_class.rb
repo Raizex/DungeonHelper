@@ -13,9 +13,7 @@ class PathfinderClass < ActiveRecord::Base
 		n = 1
 		abilitiesStrings = self.class_abilities.split(%r{ *, *})
 		abilitiesStrings.each do |ability|
-			if /\// === ability
-				ability = ability.split(%r{ */ *})
-			end
+			ability = ability.split(%r{ */ *})
 			abilitiesHash[n] = ability
 			n += 1
 		end
@@ -28,12 +26,8 @@ class PathfinderClass < ActiveRecord::Base
 		n = 1
 		babStrings = self.base_attack_bonuses.split(%r{ *, *})
 		babStrings.each do |bab|
-			if /\// === bab
-				bab = bab.split(%r{ */ *})
-				bab = bab.collect{|s| s.to_i}
-			else
-				bab = bab.to_i
-			end
+			bab = bab.split(%r{ */ *})
+			bab = bab.collect{|s| s.to_i}
 			babHash[n] = bab
 			n += 1
 		end
