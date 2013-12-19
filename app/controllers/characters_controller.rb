@@ -10,6 +10,16 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.json
   def show
+    @race = Race.find(@character.race_id)
+    feat_assignments = @character.feat_assignments
+    @feats = []
+    feat_assignments.each do |assignment|
+      @feats << Feat.find(assignment.feat_id)
+    end
+    @attributes = @character.attribute_list
+    @class = PathfinderClass.find(@character.class_id)
+    @base_attack = @class.baseAttackBonuses[1][0]
+    @saves = @class.baseSaves[1]
   end
 
   # GET /characters/new
