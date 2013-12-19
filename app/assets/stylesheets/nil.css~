@@ -1,22 +1,19 @@
 /*Links: */
+
 a:link {
 color: #FFFFFF;
 }
+
 a:visited {
 color: #FF8C00;
 }
+
 a:hover {
 color: #FF0000;
 }
 
 a:active {
 color: #00FF00;
-}
-
-#cornerImage{
-background-image: url(image-path('dungeonHelperSmall.png')); 
-background-repeat: no-repeat;
-background-position:right top;
 }
 
 h1{
@@ -56,15 +53,11 @@ color: #FFFFFF;
 table, th, td
 {
 align:center;
-border: 3px solid black;
-padding:15px;
+border: 0px solid black;
+padding:0px;
 background-color:#EEEEEE;
 color: #000000;
 
-a:link { color: #FF8C00;}
-a:visited {color: #FF8C00;}
-a:hover {color: #FF0000;}
-a:active {color: #00FF00;}
 }
 
 
@@ -103,3 +96,4 @@ font-size:24px;
 color: #FF0202;
 text-align:center;
 }
+
