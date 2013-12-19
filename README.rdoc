@@ -10,7 +10,7 @@ that allows them to easily create new characters and have one place in the cloud
 
 General info:
 * Ruby version: 2.0.0
-* Rails verson: 4.0.0
+* Rails version: 4.0.0
 
 What works:
 * User accounts
@@ -28,7 +28,7 @@ What we have not yet implemented:
 * Character sheet items: spells, skills, equipment, and hit-points
 
 To take a tour of the application:
-* Best viewed in google chrome (there may be some issues with alignments in other browsers)
+* Best viewed in Google chrome (there may be some issues with alignments in other browsers)
 * Click register at the top of the page and create a new account
 * Login with your login information
 * click new character at the bottom of the page

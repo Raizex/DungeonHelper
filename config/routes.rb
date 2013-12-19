@@ -1,5 +1,7 @@
 DungeonHelper::Application.routes.draw do
 
+  resources :about_pages
+
   resources :feats
 
   resources :class_levels
