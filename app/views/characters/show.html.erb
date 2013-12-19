@@ -1379,14 +1379,14 @@
     <table>
         <tr>
             <td rowspan="3">
-                <img src="notAvailableayet.png" alt="Pathfinder image" width=180 height=70 >&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td id="character-name" class="large-text"> <strong>Character Name:</strong> <%=@character.name%> &nbsp;&nbsp;<strong>Alignment:</strong><input type="text" size=4> &nbsp;&nbsp;<strong>Player:</strong><input type="text" size=27></td>
+                <%= image_tag("dungeonHelperSmall.png", size: "90x93", alt: "Dungeon Helper Image") %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td id="character-name" class="large-text"> <strong>Character Name:</strong> <%=@character.name%> &nbsp;&nbsp;<strong>Alignment:</strong> <%=@description.alignment%> &nbsp;&nbsp;<strong>Player:</strong> <%=@description.player%></td>
         </tr>
         <tr>
-            <td class="large-text"><strong>Character Level:</strong> 1 &nbsp;&nbsp;<strong>Deity:</strong><input type="text" size=4> &nbsp;&nbsp;<strong>Homeland:</strong><input type="text" size=28></td>
+            <td class="large-text"><strong>Character Level:</strong> 1 &nbsp;&nbsp;<strong>Class:</strong> <%=@class.class_name%>&nbsp;&nbsp;<strong>Deity:</strong> <%=@description.deity%> &nbsp;&nbsp;<strong>Homeland:</strong> <%=@description.homeland%></td>
         </tr>
         <tr>
-            <td class="large-text"><strong>Race:</strong><%= @race.race_name%> &nbsp;<strong>Size:</strong><%=@race.size%> &nbsp;<strong>Gender:</strong><input type="text" size=1> &nbsp;&nbsp;<strong>Age:</strong><input type="text" size=2> &nbsp;<strong>Height:</strong><input type="text" size=3> &nbsp;<strong>Weight:</strong><input type="text" size=3> &nbsp;<strong>Hair:</strong><input type="text" size=4> &nbsp;<strong>Eyes:</strong><input type="text" size=4></td>
+            <td class="large-text"><strong>Race:</strong><%= @race.race_name%> &nbsp;<strong>Size:</strong><%=@race.size%> &nbsp;<strong>Gender:</strong> <%=@description.gender%> &nbsp;&nbsp;<strong>Age:</strong><%=@description.alignment%> &nbsp;<strong>Height:</strong> <%=@description.height%> &nbsp;<strong>Weight:</strong> <%=@description.weight%> &nbsp;<strong>Hair:</strong> <%=@description.hair%> &nbsp;<strong>Eyes:</strong> <%=@description.eyes%></td>
         </tr>
     </table> 
     <table id="table1" width="1200" border="0px" >

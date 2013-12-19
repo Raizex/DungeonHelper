@@ -20,6 +20,7 @@ class CharactersController < ApplicationController
     @class = PathfinderClass.find(@character.class_id)
     @base_attack = @class.baseAttackBonuses[1][0]
     @saves = @class.baseSaves[1]
+    @description = @character.description
   end
 
   # GET /characters/new
