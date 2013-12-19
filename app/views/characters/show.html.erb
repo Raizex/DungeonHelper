@@ -65,11 +65,10 @@
 		</p>
 		<p>
         <p>
-        	<%= link_to 'Destroy', @description, method: :delete, data: { confirm: 'Are you sure?' } %>
-        	<%= link_to 'Edit', edit_description_path(@description, :character_id => @character.id) %>
+        	<%= link_to 'Edit', edit_character_description_path(@character) %>
         </p>
 	<% else %>	
-		<%= link_to 'Add Description', new_description_path(:character_id => @character.id)%>
+		<%= link_to 'Add Description', new_character_description_path(@character)%>
 	<% end %>
 </div>
 

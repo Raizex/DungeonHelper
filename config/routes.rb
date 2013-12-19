@@ -11,6 +11,8 @@ DungeonHelper::Application.routes.draw do
   resources :characters do
     resource :attribute_list
     resources :feat_assignments
+    resource :description
+    
     member do
       get :set_race, :to => 'characters#set_race'
       get :set_class, :to => 'characters#set_class'
@@ -28,7 +30,6 @@ DungeonHelper::Application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
-  resources :descriptions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
