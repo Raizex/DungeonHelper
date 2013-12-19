@@ -1,4 +1,4 @@
-<%= form_for(@description) do |f| %>
+<%= form_for @description, :url => character_description_path(@character) do |f| %>
   <% if @description.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@description.errors.count, "error") %> prohibited this description from being saved:</h2>
@@ -46,9 +46,6 @@
   <div class="field">
     <%= f.label :hair %><br>
     <%= f.text_field :hair %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :character_id, :value => params[:character_id] %>
   </div>
   <div class="actions">
     <%= f.submit %>

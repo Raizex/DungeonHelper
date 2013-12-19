@@ -1,4 +1,5 @@
 class DescriptionsController < ApplicationController
+  before_action :getCharacter
   before_action :set_description, only: [:show, :edit, :update, :destroy]
 
   # GET /descriptions
@@ -14,7 +15,7 @@ class DescriptionsController < ApplicationController
 
   # GET /descriptions/new
   def new
-    @description = Description.new
+    @description = @character.build_description
   end
 
   # GET /descriptions/1/edit
@@ -24,15 +25,11 @@ class DescriptionsController < ApplicationController
   # POST /descriptions
   # POST /descriptions.json
   def create
-    @description = Description.new(description_params)
+    @description = @character.build_description(description_params)
 
     respond_to do |format|
       if @description.save
-        if @description.character_id != nil
-          format.html { redirect_to character_path(@description.character_id, notice: 'Description was successfully updated.') }
-        else
-          format.html { redirect_to @description, notice: 'Description was successfully updated.' }
-        end
+        format.html { redirect_to character_description_path(@character), notice: 'Description was successfully updated.' }
         format.json { render action: 'show', status: :created, location: @description }
       else
         format.html { render action: 'new' }
@@ -46,11 +43,7 @@ class DescriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @description.update(description_params)
-        if @description.character_id != nil
-          format.html { redirect_to character_path(@description.character_id, notice: 'Description was successfully updated.') }
-        else
-          format.html { redirect_to @description, notice: 'Description was successfully updated.' }
-        end
+        format.html { redirect_to @character, notice: 'Description was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -74,7 +67,11 @@ class DescriptionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_description
-      @description = Description.find(params[:id])
+      @description = @character.description
+    end
+
+    def getCharacter
+      @character = Character.find(params[:character_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
