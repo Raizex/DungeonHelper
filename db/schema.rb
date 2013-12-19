@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219040111) do
+ActiveRecord::Schema.define(version: 20131219053249) do
 
   create_table "about_pages", force: true do |t|
     t.datetime "created_at"
@@ -74,27 +74,21 @@ ActiveRecord::Schema.define(version: 20131219040111) do
 
   create_table "feats", force: true do |t|
     t.string   "name"
-    t.string   "description"
-    t.string   "prerequisites"
-    t.string   "prerequisite_feats"
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "feat_types"
+    t.text     "description"
+    t.text     "prerequisites"
+    t.text     "prerequisite_feats"
   end
 
   create_table "pathfinder_classes", force: true do |t|
     t.string   "class_name"
     t.string   "hit_dice"
-    t.string   "weapon_proficiencies"
     t.string   "armor_proficiencies"
-    t.string   "class_skills"
-    t.string   "class_abilities"
-    t.string   "base_attack_bonuses"
-    t.string   "base_saves"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
     t.string   "available_alignments"
     t.string   "starting_wealth"
     t.integer  "base_skill_ranks_per_level"
@@ -102,17 +96,23 @@ ActiveRecord::Schema.define(version: 20131219040111) do
     t.string   "spell_list_type"
     t.string   "bonus_languages"
     t.string   "miscelaneous_features"
+    t.text     "weapon_proficiencies"
+    t.text     "class_skills"
+    t.text     "class_abilities"
+    t.text     "base_attack_bonuses"
+    t.text     "base_saves"
+    t.text     "role"
   end
 
   create_table "races", force: true do |t|
     t.string   "race_name"
-    t.string   "race_description"
     t.string   "size"
     t.string   "attribute_modifiers"
     t.string   "default_languages"
-    t.string   "available_languages"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "race_description"
+    t.text     "available_languages"
   end
 
   create_table "users", force: true do |t|
