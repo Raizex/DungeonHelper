@@ -1,6 +1,17 @@
 <%= stylesheet_link_tag "global.css" %>
 
-<h1>Login</h1>
-<%= render 'form' %>
 
+
+<h1>Login</h1>
+<table id="emptyTable" border="0" align="center">
+<tr border="0" >
+<td border="0"> <%= render 'form' %> </td>
+<td>
+<div align="right">
+<%= image_tag "dungeonHelperSmall.png" %>
+</div>
+</td>
+</tr>
+</table>
 <%= link_to 'Back', user_sessions_path %>
+

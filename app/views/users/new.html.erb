@@ -1,11 +1,19 @@
 <%= stylesheet_link_tag "global.css" %>
 
-<h1>New user</h1>
+<h1 font-size="20px">New user</h1>
 
-<%= render 'form' %>
+
+<table id="emptyTable" border="0" align="center">
+<tr border="0" >
+<td border="0"> <%= render 'form' %> </td>
+<td>
+<div align="right">
+<%= image_tag "dungeonHelperSmall.png" %>
+</div>
+</td>
+</tr>
+</table>
+
 <%= link_to 'Back', users_path %>
 
-<h2>
-<%= image_tag "sword.jpg" %>
 
-</h2>

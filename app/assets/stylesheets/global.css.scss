@@ -1,20 +1,101 @@
+/*Links: */
+
+a:link {
+color: #FFFFFF;
+}
+
+a:visited {
+color: #FF8C00;
+}
+
+a:hover {
+color: #FF0000;
+}
+
+a:active {
+color: #00FF00;
+}
+
+
+
 h1{
 font-family:"Times New Roman";
 font-size:20px;
 text-align:center;
-background-color:#10e4fe;
+color: #FFFFFF;
+
 }
 
-body{
-text-align:center;
-background-color:#d0e4fe;
-background-image:url(image-path('StoneBrickWallTexture2.jpg'));
+/*Colors: */
+/*Dark Burgundy: BF344d */
+/*Colors: */
+/*Colors: */
+/*Colors: background-color:#BF344d; */
 
+body{
+color: #FFFFFF;
+text-align:center;
+background-image:url(image-path('StoneBrickWallTexture.jpg'));
+
+
+#emptyTable{
+border: 0px;
+padding:15px;
+align:right;
+background-color:trasnparent;
+color: #FFFFFF;
+}
+
+
+table, th, td
+{
+border: 3px solid black;
+padding:15px;
+align:right;
+background-color:#EEEEEE;
+color: #000000;
+
+a:link { color: #FF8C00;}
+a:visited {color: #FF8C00;}
+a:hover {color: #FF0000;}
+a:active {color: #00FF00;}
+}
+
+
+a:link { color: #FF8C00;}
+a:visited {color: #FF8C00;}
+a:hover {color: #FF0000;}
+a:active {color: #00FF00;}
+
+
+}
+
+/*Error form*/
+form{
+
+color: #000000;
+text-align:center;
+
+}
+
+
+#notice{
+font-weight:bolder;
+text-transform:uppercase;
+font-size:24px;
+color: #FF0202;
+text-align:center;
 }
 
 p{
-text-align:center;
-
+color: #FFFFFF;
+font-size:12px;
 }
 
-
+#alert{
+font-weight:bolder;
+text-transform:uppercase;
+font-size:24px;
+color: #FF0202;
+text-align:center;
+}
