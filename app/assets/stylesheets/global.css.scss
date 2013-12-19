@@ -16,13 +16,18 @@ a:active {
 color: #00FF00;
 }
 
-
+#cornerImage{
+background-image: url(image-path('dungeonHelperSmall.png')); 
+background-repeat: no-repeat;
+background-position:right top;
+}
 
 h1{
 font-family:"Times New Roman";
-font-size:20px;
+font-size:26px;
 text-align:center;
 color: #FFFFFF;
+
 
 }
 
@@ -35,7 +40,11 @@ color: #FFFFFF;
 body{
 color: #FFFFFF;
 text-align:center;
+
+
+
 background-image:url(image-path('StoneBrickWallTexture.jpg'));
+font-size:18px;
 
 
 #emptyTable{
@@ -49,9 +58,9 @@ color: #FFFFFF;
 
 table, th, td
 {
+align:center;
 border: 3px solid black;
 padding:15px;
-align:right;
 background-color:#EEEEEE;
 color: #000000;
 
@@ -70,15 +79,13 @@ a:active {color: #00FF00;}
 
 }
 
-/*Error form*/
+/*Form*/
 form{
-
 color: #000000;
 text-align:center;
-
 }
 
-
+/*Notice*/
 #notice{
 font-weight:bolder;
 text-transform:uppercase;
