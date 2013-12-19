@@ -26,9 +26,10 @@ What we have not yet implemented:
 * Leveling up
 * Prompts to tell the user what to roll for attacks/spells
 * Character sheet items: spells, skills, equipment, and hit-points
+* Issues with stylesheets in Heroku have not been resolved
 
 To take a tour of the application:
-* Best viewed in Google chrome (there may be some issues with alignments in other browsers)
+* {Deployed here on Heroku}[http://limitless-taiga-6038.herokuapp.com/]
 * Click register at the top of the page and create a new account
 * Login with your login information
 * click new character at the bottom of the page
