@@ -27,7 +27,7 @@ DungeonHelper::Application.routes.draw do
   
   root :to => 'characters#index'
   resources :user_sessions
-  resources :users
+  resources :users, :except => [:index]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
