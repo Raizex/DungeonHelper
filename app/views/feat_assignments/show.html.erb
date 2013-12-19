@@ -10,5 +10,5 @@
   <%= @feat_assignment.feat_id %>
 </p>
 
-<%= link_to 'Edit', edit_feat_assignment_path(@feat_assignment) %> |
-<%= link_to 'Back', feat_assignments_path %>
+<%= link_to 'Edit', [:edit, @character, @feat_assignment] %> |
+<%= link_to 'Back', character_feat_assignments_path(@character) %>

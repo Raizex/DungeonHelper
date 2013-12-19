@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @feat_assignment %> |
-<%= link_to 'Back', feat_assignments_path %>
+<%= link_to 'Show', [@character, @feat_assignment] %> |
+<%= link_to 'Back', character_feat_assignments_path(@character) %>

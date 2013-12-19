@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy, :set_race, :set_class]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :set_race, :set_class, :choose_feats]
 
   # GET /characters
   # GET /characters.json
@@ -45,6 +45,8 @@ class CharactersController < ApplicationController
       if @character.update(character_params)
         if params["UpdateCharacter"] == "Update Race"
           format.html { redirect_to  set_class_character_path(@character)}
+        elsif params["UpdateCharacter"] == "Update Class"
+          format.html { redirect_to  new_character_feat_assignment_path(@character)}
         else
           format.html { redirect_to character_path, notice: 'Character was successfully updated.' }
         end

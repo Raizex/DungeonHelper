@@ -1,7 +1,5 @@
 DungeonHelper::Application.routes.draw do
 
-  resources :feat_assignments
-
   resources :feats
 
   resources :class_levels
@@ -12,6 +10,7 @@ DungeonHelper::Application.routes.draw do
 
   resources :characters do
     resource :attribute_list
+    resources :feat_assignments
     member do
       get :set_race, :to => 'characters#set_race'
       get :set_class, :to => 'characters#set_class'

@@ -16,9 +16,9 @@
       <tr>
         <td><%= feat_assignment.character_id %></td>
         <td><%= feat_assignment.feat_id %></td>
-        <td><%= link_to 'Show', feat_assignment %></td>
-        <td><%= link_to 'Edit', edit_feat_assignment_path(feat_assignment) %></td>
-        <td><%= link_to 'Destroy', feat_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@character, feat_assignment] %></td>
+        <td><%= link_to 'Edit', [:edit, @character, feat_assignment] %></td>
+        <td><%= link_to 'Destroy', [@character, feat_assignment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Feat assignment', new_feat_assignment_path %>
+<%= link_to 'New Feat assignment', new_character_feat_assignment_path(@character) %>
