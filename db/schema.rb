@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218205338) do
+ActiveRecord::Schema.define(version: 20131219024411) do
 
   create_table "attribute_lists", force: true do |t|
     t.integer  "character_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20131218205338) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "character_id"
+    t.string   "age"
   end
 
   create_table "feat_assignments", force: true do |t|
