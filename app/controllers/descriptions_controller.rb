@@ -29,7 +29,7 @@ class DescriptionsController < ApplicationController
 
     respond_to do |format|
       if @description.save
-        format.html { redirect_to character_description_path(@character), notice: 'Description was successfully updated.' }
+        format.html { redirect_to new_character_attribute_list_path(@character), notice: 'Description was successfully updated.' }
         format.json { render action: 'show', status: :created, location: @description }
       else
         format.html { render action: 'new' }
