@@ -1,28 +1,47 @@
-== README
+== Dungeon Helper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dungeon Helper is a character sheet creator and manager for the 
+{Pathfinder Roleplaying Game}[http://paizo.com/pathfinderRPG]. 
+As a group of avid tabletop gamers, we have often found it somewhat 
+tedious to carry around a bunch of character sheets which eventually become unreadable due 
+to all the erasing and re-writing and pizza, and frequently get lost. 
+To fix this issue, we have created (or are in the process of creating) Dungeon Helper, a tool for table top gamers
+that allows them to easily create new characters and have one place in the cloud to access them all from any computer.
 
-Things you may want to cover:
+General info:
+* Ruby version: 2.0.0
+* Rails verson: 4.0.0
 
-* Ruby version
+* Home (Login/Signup/About) view
+* About view
+* User view
+* Character sheet view
+* Character sheet creation view
+* Character sheet edit view
+* Character Level up view
+* Character sheet Real Time view
 
-* System dependencies
+What works:
+* User accounts
+* Create new character walks you through the character creation process for description, attributes, race, class, and feats.
+* A static character sheet page that displays your character and everything that you chose during character creation
+* Fighter class
+* Dwarf/Elf races
+* A handful of feats
 
-* Configuration
+What we have not yet implemented:
+* Character sheet real time view
+* Edit character only allows you to edit the name, summary, and campaign of the character for now
+* Leveling up
+* Prompts to tell the user what to roll for attacks/spells
+* Character sheet items: spells, skills, equipment, and hit-points
 
-* Database creation
+To take a tour of the application:
+* Best viewed in google chrome (there may be some issues with alignments in other browsers)
+* Click register at the top of the page and create a new account
+* Login with your login information
+* click new character at the bottom of the page
+* follow the steps and fill in the fields/make choices from the selection boxes
+* View your created character!
+* Click home to see your character listed and to create a new character
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
